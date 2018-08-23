@@ -1,0 +1,1 @@
+$(function(){$("#sign-up").on("click",function(){$("#base-public-login").fadeIn()}),$("#getclose").on("click",function(){$("#getcredits").fadeOut()})});

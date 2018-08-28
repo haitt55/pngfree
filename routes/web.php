@@ -47,3 +47,15 @@ Route::group([
 
     Route::view('/reset-password/success', 'guest.reset_password', ['status' => 1]);
 });
+
+Route::get('admin/dashboard','AdminController@index');
+Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
+Route::post('admin','Admin\LoginController@login');
+Route::post('admin-password/email','Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+Route::get('admin-password/reset','Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
+Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

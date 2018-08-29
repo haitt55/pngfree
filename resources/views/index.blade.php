@@ -1,10 +1,14 @@
+<?php
+use App\Helpers\General;
+
+$categories = General::getCategoryTree();
+?>
 @extends('layouts.default')
 @section('title', 'ログイン')
 @section('css_class_content', 'page-login')
 @section('content_before')
 <!-- v2 slideshow -->
 <h1 style="display:none;">Pngtree Adds Thousands of Free PNG Images, Vectors, and Backgrounds Every Day</h1>
-
 <div class="new-banner-s"
      style="background: url(png.pngtree.com/indexBackground/647b3347c59a0ee8f4236d46ea8c15bb.jpg) center center no-repeat;">
     <div class="w1520">
@@ -14,11 +18,9 @@
         <!-- search -->
         <div class="serach-box">
             <div class="sb-items search-type">
-                <a href="javascript:;" class="on" data-type='1'>GRAPHIC DESIGN</a>
-                <a href="javascript:;" data-type='2'>BACKGROUNDS</a>
-                <a href="javascript:;" data-type='5'>TEMPLATES </a>
-                <a href="javascript:;" data-type='6'>POWERPOINT</a>
-                <a href="javascript:;" data-type='3'>ICONS</a>
+                @foreach ($categories as $category1)
+                    <a href="javascript:;" class="@if($loop->first) on @endif" data-type='{{ $category1['id'] }}'>{{ $category1['name'] }}</a>
+                @endforeach
             </div>
 
             <form class="sb-form clearfix">

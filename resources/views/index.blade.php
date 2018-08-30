@@ -1964,12 +1964,14 @@ $categories = General::getCategoryTree();
                     <p class="small-tit">with your social network.</p>
 
                     <div class="share-website clearfix ">
-                        <a href="javascript:;" data-type="gg" class="btn-google base-go-login fl-l">
+                        <div class="share-website clearfix ">
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'google']) }}" class="btn-google  fl-l">
                             <i class="icon-google"></i>Google</a>
-                        <a href="javascript:;" data-type="fb" class="btn-facebook base-go-login fl-l">
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'facebook']) }}" class="btn-facebook fl-l">
                             <i class="icon-facebook"></i>Facebook</a>
-                        <a href="javascript:;" data-type="tt" class="btn-twitter base-go-login fl-l">
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'twitter']) }}" class="btn-twitter  fl-l">
                             <i class="icon-twitter"></i>Twitter</a>
+                    </div>
                     </div>
                 </div>
                 <div class="fg-line"> or</div>
@@ -2025,36 +2027,25 @@ $categories = General::getCategoryTree();
                     </p>
 
                     <div class="share-website clearfix ">
-                        <!--                    <a href="javascript:;" data-type="fb" style="display: none;"  class="btn-facebook base-go-login fl-l"><i class="icon-facebook"></i>Facebook</a>-->
-                        <a href="javascript:;" data-type="gg" class="btn-google base-go-login fl-l">
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'google']) }}" class="btn-google  fl-l">
                             <i class="icon-google"></i>Google</a>
-                        <a href="javascript:;" data-type="fb" class="btn-facebook base-go-login fl-l">
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'facebook']) }}" class="btn-facebook fl-l">
                             <i class="icon-facebook"></i>Facebook</a>
-                        <a href="javascript:;" data-type="tt" class="btn-twitter base-go-login fl-l">
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'twitter']) }}" class="btn-twitter  fl-l">
                             <i class="icon-twitter"></i>Twitter</a>
                     </div>
                 </div>
                 <div class="fg-line">
                     or
                 </div>
-                <form action="#">
+                <form action="{{ route() }}">
                     <input type="text" id="base-public-login-username-regiser-text" maxlength="255"
-                           placeholder="Username"/>
+                           placeholder="Name" name="name"/>
                     <input type="email" id="base-public-login-email-regiser-text" maxlength="100"
-                           placeholder="Email"/>
+                           placeholder="Email" name="email"/>
                     <input type="password" id="base-public-login-password-regiser-text" maxlength="20"
-                           placeholder="Password" class="pwdPut"
-                            />
-
-                    <div class="input-code-box clearfix">
-                        <input type="text" class="input-code" placeholder="Verification code">
-
-                        <div class="verification-code">
-                            <img src="#" onclick="Pngtree.BaseFun.captcha()" title="click refresh"
-                                 alt="click refresh">
-                        </div>
-                    </div>
-                    <a class="ipt-btn" id="base-sub-regist-Btn"/>Register</a>
+                           placeholder="Password" class="pwdPut" name="password"/>
+                    <button class="ipt-btn" id="btn-register"/>Register</button>
                 </form>
                 <p class="wx-prompt">Already have an account?
                     <a href="javascript:;" id="base-login-trigger" class="login-trigger">Log in</a>

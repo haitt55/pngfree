@@ -9,16 +9,28 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::view('/about.html', 'pages.about');
-Route::view('/terms-of-service.html', 'pages.terms_of_service');
+Route::group([
+    'as'         => 'front.',
+    'middleware' => 'front_auth',
+], function () {
+    Route::get('/', 'Front\HomeController@index')->name('home');
+    Route::view('/about.html', 'pages.about');
+    Route::view('/terms-of-service.html', 'pages.terms_of_service');
+
+    Route::get('logout', 'Front\AuthController@logout')->name('logout');
+});
 
 // Auth
 Route::group([
     'as' => 'auth.',
 ], function () {
+
+    // socialite
+    Route::get('login/social/{provider}', 'Front\SocialController@redirectToProvider')->name('social_redirect');
+    Route::get('login/social/{provider}/callback', 'Front\SocialController@handleProviderCallback')->name('social_callback');
+
     Route::get('logout', 'Auth\LoginController@logout')
         ->name('logout');
     Route::get('login', 'Auth\LoginController@loginView')

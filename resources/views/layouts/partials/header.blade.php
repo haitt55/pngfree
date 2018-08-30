@@ -93,9 +93,15 @@ $categories = General::getCategoryTree();
             </div>
             <!-- language END -->
             <!-- bell -->
+
             <div class="Beforelogin-boxs fl-l">
+                @if($userLoggedIn)
+                <span style="color: #FFF">{{ $userLoggedIn->name }}</span>
+                <a href="/logout" class="btn-logo">Logout</a>
+                @else
                 <a href="javascript:;" class="btn-logo base-public-login-button">Login</a>
                 <a href="javascript:;" class="btn-register base-public-register-button">Register</a>
+                @endif
             </div>
         </div>
         <div class="continuous-login-tips keep-login-alert" style="display: none;">

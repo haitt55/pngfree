@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -40,5 +41,10 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('admin.login');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\User;
 class AdminController extends Controller
 {
     /**
@@ -10,7 +11,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin');
+        $this->middleware('auth:admin');
     }
 
     /**
@@ -20,6 +21,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        return view('admin.manage.index');
+    }
+
+    public function listUser(Request $request)
+    {
+        return view('admin.manage.list_user', ['users' => User::getAllUsers($request->name, $request->email)]);
     }
 }

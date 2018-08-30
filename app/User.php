@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -26,4 +27,27 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function getAllUsers($name = null, $email = null){
+        $path = route('admin.listUser');
+        $colection = self::orderBy('created_at');
+        if($name) {
+            $colection = $colection->where('name', 'like', '%'.$name.'%');
+            $path = $path.'?name='.$name;
+        }
+
+        if($email) {
+            $colection = $colection->where('email', 'like', '%'.$email.'%');
+            if($name){
+                $path = $path.'&email='.$email;
+            }else {
+                $path = $path.'?email='.$email;
+            }
+        }
+        return $colection->paginate(10)->setPath($path);
+    }
+
+    public static function deleteUser(){
+        
+    }
 }

@@ -50,6 +50,8 @@ Route::group([
 
 Route::get('admin/dashboard','AdminController@index')->name('admin.dashboard');
 Route::get('admin/list-users','AdminController@listUser')->name('admin.listUser');
+Route::post('admin/changeStatus','AdminController@changeStatus')->name('admin.changeStatus');
+Route::post('admin/deleteUser','AdminController@deleteUser')->name('admin.deleteUser');
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin','Admin\LoginController@login');
 Route::post('admin-password/email','Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');

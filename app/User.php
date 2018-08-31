@@ -28,6 +28,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    const TYPE_1 = 30;
+    const TYPE_1_1 = 60;
+    const TYPE_1_6 = 300;
+    const TYPE_1_12 = 550;
+
+
+    const TYPE_2 = 50;
+    const TYPE_2_1 = 80;
+    const TYPE_2_6 = 420;
+    const TYPE_2_12 = 850;
+
+
     public static function getAllUsers($name = null, $email = null){
         $path = route('admin.listUser');
         $colection = self::orderBy('created_at');
@@ -47,7 +59,42 @@ class User extends Authenticatable
         return $colection->paginate(10)->setPath($path);
     }
 
-    public static function deleteUser(){
-        
+    public static function deleteUser($userID){
+        return self::where('id', $userID)->delete();
+    }
+
+    public static function getAllStatus(){
+        return [
+            self::TYPE_1 => [
+                self::TYPE_1_1 => '1 tháng (60k)',
+                self::TYPE_1_6 => '6 tháng (300k )',
+                self::TYPE_1_12 => '1 năm(550k)',
+            ],
+            self::TYPE_2 => [
+                self::TYPE_2_1 => '1 tháng (80k)',
+                self::TYPE_2_6 => '6 tháng (420k)',
+                self::TYPE_2_12 => '6 tháng (850k)',
+            ],
+        ];
+    }
+
+    public static function getMonthStatus(){
+        return [
+            self::TYPE_1_1 => 1,
+            self::TYPE_1_6 => 6,
+            self::TYPE_1_12 => 12,
+            self::TYPE_2_1 => 1,
+            self::TYPE_2_6 => 6,
+            self::TYPE_2_12 => 12,
+        ];
+    }
+
+    public static function changeStatus($userID, $payment_id){
+        return self::where('id', $userID)
+            ->update([
+                'payment_id' => $payment_id,
+                'payment_at' =>  DB::raw('NOW()'),
+                'payment_expire' => DB::raw("DATE_ADD(NOW(), INTERVAL ".self::getMonthStatus()[$payment_id]." MONTH)"),
+            ]);
     }
 }

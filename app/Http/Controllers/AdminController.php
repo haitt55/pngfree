@@ -26,6 +26,17 @@ class AdminController extends Controller
 
     public function listUser(Request $request)
     {
-        return view('admin.manage.list_user', ['users' => User::getAllUsers($request->name, $request->email)]);
+        return view('admin.manage.list_user', ['users' => User::getAllUsers($request->name, $request->email), 'allStatus' => User::getAllStatus()]);
+    }
+
+    public function changeStatus(Request $request)
+    {
+        return User::changeStatus($request->user_id, $request->payment_id);
+    }
+
+    public function deleteUser(Request $request)
+    {
+        dd($request->all());
+        return User::deleteUser($request->user_id);
     }
 }

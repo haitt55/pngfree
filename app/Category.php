@@ -15,6 +15,10 @@ class Category extends BaseModel
     const ICON = 5;
     const BACK_GROUND = 6;
 
+    const LEVEL_ROOT = 0;
+    const LEVEL_1 = 1;
+    const LEVEL_2 = 2;
+
     protected $table = 'categories';
 
     protected $fillable = [
@@ -71,6 +75,30 @@ class Category extends BaseModel
         $result = array();
         $arrChildId = self::getAllCategoryChildId($categoryId, $level);
         return $result;
+    }
+
+    public static function getCategoriesTags($category)
+    {
+        $categoriesTags = array();
+        $categoriesTags['top'] = array();
+        $categoriesTags['mid'] = array();
+        $categoriesTags['bottom'] = array();
+        if ($category->level == self::LEVEL_ROOT) {
+            $categoriesTags['top'] = self::where('parent_id', $category->id)->get();
+            $categoriesTags['mid'] = self::whereIn('parent_id', self::where('parent_id', $category->id)->pluck('id')->toArray())->limit(27)->get();
+            $categoriesTags['all_top'] = $category;
+        } elseif ($category->level == self::LEVEL_1) {
+            $categoriesTags['top'] = self::where('parent_id', $category->parent_id)->get();
+            $categoriesTags['mid'] = self::whereIn('parent_id', self::where('parent_id', $category->parent_id)->pluck('id')->toArray())->limit(27)->get();
+            $categoriesTags['all_top'] = self::where('id', $category->parent_id)->first();
+        } else {
+            $parent = self::where('id', $category->parent_id)->first();
+            $categoriesTags['top'] = self::where('parent_id', $parent->parent_id)->get();
+            $categoriesTags['mid'] = self::whereIn('parent_id', self::where('parent_id', $parent->parent_id)->pluck('id')->toArray())->limit(27)->get();
+            $categoriesTags['all_top'] = self::where('id', $parent->parent_id)->first();
+        }
+
+        return $categoriesTags;
     }
 
 }

@@ -6,12 +6,15 @@ $categories = General::getCategoryTree();
 @extends('layouts.default')
 @section('title', 'category')
 @section('css_class_content', 'page-login')
+@section('css')
+    <link href="css/paginate.css" rel="stylesheet">
+@endsection
 @section('content_before')
         <!-- v2  Scroll navigation end -->
-<h1 style="display:none;">3,461,452 Free Graphic Design PNG, Vectors and PSD Files</h1>
+<h1 style="display:none;">{{ number_format($total) }} Free Graphic Design PNG, Vectors and PSD Files</h1>
 <div id="v2-subpageBan" class="subpageBan">
     <div class="w1520 pr">
-        <h3 class="title-main">3,461,452 Free Graphic Design</h3>
+        <h3 class="title-main">{{ number_format($total) }} Free {{ ucwords(strtolower($category->name)) }}</h3>
         <!-- search -->
         <div class="serach-box">
             <div class="sb-items search-type">
@@ -50,90 +53,27 @@ $categories = General::getCategoryTree();
         <!-- mainbav  -->
         <div class="subpage-Mainbav clearfix templates-ban element-cate-click">
             <div class="SM-lists fl-l">
-                <a href="free-graphic-design.html" class="on">All</a>
-                <a href="commercial-use.html" class="">Royalty free</a>
-                <a href="free-png.html" class="">PNG</a>
-                <a href="free-vectors.html" class="">Vector</a>
-                <a href="free-psd.html" class="">PSD</a>
-                <a href="free-clipart.html" class="">Clipart</a>
+                <a href="{{ $categoriesTags['all_top']->slug }}.html" @if($categoriesTags['all_top']->slug == $category->slug) class="on" @endif>All</a>
+                @foreach($categoriesTags['top'] as $val)
+                <a href="{{ $val->slug }}.html" @if($val->slug == $category->slug) class="on" @endif>{{ $val->name }}</a>
+                @endforeach
             </div>
             <div class="SM-lists fl-l">
                 <!--                元素商用-->
 
-                <a href="free-graphic-design.html"
-                   class="on">All</a>
-                <a href="free-animals-png.html"
-                        >Animals</a>
-                <a href="free-star-png.html"
-                        >Star</a>
-                <a href="free-music-png.html"
-                        >Music</a>
-                <a href="free-christmas-png.html"
-                        >Christmas</a>
-                <a href="free-hearts-png.html"
-                        >Hearts</a>
-                <a href="free-arrows-png.html"
-                        >Arrows</a>
-                <a href="free-flower-png.html"
-                        >Flower</a>
-                <a href="free-tree-png.html"
-                        >Tree</a>
-                <a href="free-logo-png.html"
-                        >Logo</a>
-                <a href="free-cars-png.html"
-                        >Cars</a>
-                <a href="free-people-png.html"
-                        >People</a>
-                <a href="free-cloud-png.html"
-                        >Cloud</a>
-                <a href="free-light-png.html"
-                        >Light</a>
-                <a href="free-ribbons-png.html"
-                        >Ribbons</a>
-                <a href="free-line-png.html"
-                        >Line</a>
-                <a href="free-circle-png.html"
-                        >Circle</a>
-                <a href="free-birthday-png.html"
-                        >Birthday</a>
-                <a href="free-water-png.html"
-                        >Water</a>
-                <a href="free-bird-png.html"
-                        >Bird</a>
-                <a href="free-sun-png.html"
-                        >Sun</a>
-                <a href="free-grass-png.html"
-                        >Grass</a>
-                <a href="free-fire-png.html"
-                        >Fire</a>
-                <a href="free-smoke-png.html"
-                        >Smoke</a>
-                <a href="free-crown-png.html"
-                        >Crown</a>
-                <a href="free-explosion-png.html"
-                        >Explosion</a>
-                <a href="free-autumn-png.html"
-                        >Autumn</a>
+                <a href="{{ $categoriesTags['all_top']->slug }}.html" @if($categoriesTags['all_top']->slug == $category->slug) class="on" @endif>All</a>
+                @foreach($categoriesTags['mid'] as $val)
+                <a href="{{ $val->slug }}.html" @if($val->slug == $category->slug) class="on" @endif>{{ $val->name }}</a>
+                @endforeach
             </div>
             <div class="SM-lists fl-l">
             </div>
 
             <div class="SM-lists fl-l">
 
-                <a href="free-graphic-design.html" class="on">Popular</a>
-                <a rel="nofollow" href="free-graphic-designd4b4.html?sort=new" class="">New</a>
-                <a rel="nofollow" href="free-graphic-designcc30.html?sort=most" class="">Most Download</a>
-
-
-                <a rel="nofollow" href="freepng/Recently-Download.html"
-                   class="">Recently Download</a>
-
-
-                <a href="free-graphic-design.html" class="all-reight on">All</a>
-                <a rel="nofollow" href="free-graphic-designd7f4.html?rf=1" class="">Commercial use</a>
-                <!--                背景横图竖图筛选-->
-                <!--                背景横图竖图筛选-->
-
+                <a href="{{ $category->slug }}.html" @if(!$sort) class="on" @endif>Popular</a>
+                <a rel="nofollow" href="{{ $category->slug }}.html?sort=new" @if($sort == 'new') class="on" @endif>New</a>
+                <a rel="nofollow" href="{{ $category->slug }}.html?sort=most" @if($sort == 'most') class="on" @endif>Most Download</a>
 
             </div>
 
@@ -194,23 +134,7 @@ $categories = General::getCategoryTree();
                 </ul>
             </div>
 
-
-            <!-- 分页 -->
-            <div class='pageList'>
-                <div class='pageCont'><a href='javascript:void(0);' class='prevPage '><i></i></a> <a
-                            href='javascript:void(0);' class='on'>1</a> <a rel='nofollow'
-                                                                           href='free-graphic-design/2.html'>2</a> <a
-                            rel='nofollow' href='free-graphic-design/3.html'>3</a> <a rel='nofollow'
-                                                                                      href='free-graphic-design/4.html'>4</a>
-                    <a rel='nofollow' href='free-graphic-design/5.html'>5</a> <a rel='nofollow'
-                                                                                 href='free-graphic-design/6.html'>6</a>
-                    <a rel='nofollow' href='free-graphic-design/7.html'>7</a> <a rel='nofollow'
-                                                                                 href='free-graphic-design/8.html'>8</a>
-                    <span>…</span> <a rel='nofollow' href='free-graphic-design/200.html'>200</a> <a rel='nofollow'
-                                                                                                    href='free-graphic-design/2.html'
-                                                                                                    class='nextPage '><i></i></a>
-                </div>
-            </div>
+            {{ $images->links('layouts.includes.paginate') }}
         </div>
         <!-- Excellent Templates -->
         <!--imgList-->

@@ -151,4 +151,8 @@ class General
         }
         return '';
     }
+
+    public static function toCamelCase() {
+
+    }
 }

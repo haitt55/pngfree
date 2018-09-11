@@ -14,13 +14,19 @@ class CategoryController extends Controller
         //
     }
 
-    public function index($categorySlug)
+    public function index($categorySlug, Request $request)
     {
-        // TODO paginate
         $category = Category::findBySlug($categorySlug);
         $images = Image::getAllImagesByCategory($category->id, $category->level);
+        $total = Image::countByCategory($category->id, $category->level);
+        $categoriesTags = Category::getCategoriesTags($category);
+        $sort = $request->get('sort');
         return view('categories.index')->with(array(
-            'images' => $images
+            'category' => $category,
+            'images' => $images,
+            'total' => $total,
+            'categoriesTags' => $categoriesTags,
+            'sort' => $sort
         ));
     }
 }

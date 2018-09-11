@@ -39,8 +39,17 @@ class Image extends BaseModel
         $categoryChildIds = Category::getAllCategoryChildId($categoryId, $level);
         $images = self::whereIn('category_id', $categoryChildIds)
             ->orWhere('category_id', $categoryId)->orderBy('id', 'desc')
-            ->get();
+            ->paginate(config('constants.limit_images_category'));
 
         return $images;
+    }
+
+    public static function countByCategory($categoryId, $level = 0)
+    {
+        $categoryChildIds = Category::getAllCategoryChildId($categoryId, $level);
+        $count = self::whereIn('category_id', $categoryChildIds)
+            ->orWhere('category_id', $categoryId)
+            ->count();
+        return $count;
     }
 }

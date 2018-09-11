@@ -17,14 +17,16 @@ $categories = General::getCategoryTree();
                     @if ($category1['childs'])
                     <div class="
                         @if(\App\Helpers\General::checkCategory($category1['name']) != \App\Category::POWER_POINT
-                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::ICON)
+                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::ICON
+                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::TEMPLATES)
                             drop-down
                         @else
                             template-pulldown
                         @endif
                     tran">
                         @if(\App\Helpers\General::checkCategory($category1['name']) != \App\Category::POWER_POINT
-                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::ICON)
+                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::ICON
+                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::TEMPLATES)
                         <ul class="mainCont">
                             @foreach ($category1['childs'] as $category2)
                             <li class="mc-lists @if ($loop->first) on @endif">

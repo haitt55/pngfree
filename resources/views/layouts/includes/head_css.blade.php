@@ -113,11 +113,11 @@ use Carbon\Carbon;
         <img height="1" width="1" src="https://www.facebook.com/tr?id=822036991323387&amp;ev=PageView&amp;noscript=1"/>
     </noscript>
 
-<link href="v2/css/v2/basef3db.css?v=2018081119" rel="stylesheet">
-<link href="v2/css/v2/indexf3db.css?v=2018081119" rel="stylesheet">
-<link href="v2/css/v2/coupon/couponf3db.css?v=2018081119" rel="stylesheet">
-<link href="v2/css/v2/subpagef3db.css?v=2018081119" rel="stylesheet">
-<link href="v2/css/v2/details/details.css?v=2018081119" rel="stylesheet">
-<link href="v2/css/v2/bnPic-listf3db.css?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/basef3db.css') }}" rel="stylesheet">
+<link href="{{ url('v2/css/v2/indexf3db.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/coupon/couponf3db.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/subpagef3db.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/details/details.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/bnPic-listf3db.css') }}?v=2018081119" rel="stylesheet">
 
 @yield('css')

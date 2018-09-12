@@ -52,4 +52,19 @@ class Image extends BaseModel
             ->count();
         return $count;
     }
+
+    public static function getAllImagesByTag($tagId)
+    {
+        $images = self::where('tag_id', 'like', '%'.$tagId.'%')
+            ->orderBy('id', 'desc')
+            ->paginate(config('constants.limit_images_category'));
+
+        return $images;
+    }
+
+    public static function countByTag($tagId)
+    {
+        $count = self::where('tag_id', 'like', '%'.$tagId.'%')->count();
+        return $count;
+    }
 }

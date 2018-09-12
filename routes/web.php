@@ -14,9 +14,10 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::view('/about.html', 'pages.about');
 Route::view('/terms-of-service.html', 'pages.terms_of_service');
-Route::get('/{categorySlug}.html', 'CategoryController@index');
+Route::get('/{categorySlug}.html', 'CategoryController@index')->name('category.index');
+Route::get('/so/{tagSlug}.html', 'TagController@index')->name('tag.index');
 Route::get('/{categoryPrefix}/{imageSlug}', 'ImageController@detail')
-    ->where('imageSlug', '^.{1,255}$');
+    ->where('imageSlug', '^.{1,255}$')->name('image.detail');
 
 // Auth
 Route::group([

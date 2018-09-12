@@ -13,7 +13,7 @@ $categories = General::getCategoryTree();
             @foreach ($categories as $category1)
                 <li class="@if(\App\Helpers\General::checkCategory($category1['name']) != \App\Category::ART_FONT) pulldown-box @endif
                     ga-c @if ($category1['is_head_red']) head-redbtn @endif" data-ga="head-nav|element">
-                    <a href="{{ $category1['slug'] }}.html">{{ $category1['name'] }}</a>
+                    <a href="{{ route('category.index', array('categorySlug' => $category1['slug'])) }}">{{ $category1['name'] }}</a>
                     @if ($category1['childs'])
                     <div class="
                         @if(\App\Helpers\General::checkCategory($category1['name']) != \App\Category::POWER_POINT
@@ -30,15 +30,15 @@ $categories = General::getCategoryTree();
                         <ul class="mainCont">
                             @foreach ($category1['childs'] as $category2)
                             <li class="mc-lists @if ($loop->first) on @endif">
-                                <a href="{{ $category2['slug'] }}.html" target="_blank" class="btn-classify"
+                                <a href="{{ route('category.index', array('categorySlug' => $category2['slug'])) }}" target="_blank" class="btn-classify"
                                    data-type="exquisite">{{ $category2['name'] }}</a>
                                 <div class="clearfix vfp-cont  tran">
                                     <h3>
-                                        <a href="{{ $category2['slug'] }}.html" target="_blank"> {{ $category2['name'] }} @if ($category2['is_new'])<b
+                                        <a href="{{ route('category.index', array('categorySlug' => $category2['slug'])) }}" target="_blank"> {{ $category2['name'] }} @if ($category2['is_new'])<b
                                                     class="new-tips">NEW</b>@endif</a>
                                     </h3>
                                     @foreach ($category2['childs'] as $category3)
-                                        <a href="{{ $category3['slug'] }}.html" target="_blank" title="{{ $category3['name'] }}">{{ $category3['name'] }}</a>
+                                        <a href="{{ route('category.index', array('categorySlug' => $category3['slug'])) }}" target="_blank" title="{{ $category3['name'] }}">{{ $category3['name'] }}</a>
                                     @endforeach
                                 </div>
                             </li>
@@ -47,7 +47,7 @@ $categories = General::getCategoryTree();
                         @else
                             <div>
                                 @foreach ($category1['childs'] as $category2)
-                                <a rel="nofollow" href="{{ $category2['slug'] }}.html"  target="_blank" title="{{ $category2['name'] }}">{{ $category2['name'] }}</a>
+                                <a rel="nofollow" href="{{ route('category.index', array('categorySlug' => $category2['slug'])) }}"  target="_blank" title="{{ $category2['name'] }}">{{ $category2['name'] }}</a>
                                 @endforeach
                             </div>
                         @endif
@@ -55,7 +55,7 @@ $categories = General::getCategoryTree();
                     @endif
                     @if ($category1['is_head_red'])
                     <div class="red-pull">
-                        <a href="{{ $category1['slug'] }}.html" title="">Copyright</a>
+                        <a href="{{ route('category.index', array('categorySlug' => $category1['slug'])) }}" title="">Copyright</a>
                     </div>
                     @endif
                 </li>

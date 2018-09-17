@@ -1,4 +1,7 @@
-<?php use App\User;?>
+<?php
+use App\User;
+use Illuminate\Support\Facades\Session;
+?>
 @extends('admin.manage.master')
 @section('current_listUser')
 	current
@@ -20,6 +23,9 @@
   					<div id="success_message">
   						
   					</div>
+  					@if(Session::has('success'))
+						<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('success') }}</p>
+					@endif
   					<table class="table table-bordered table-striped">
   						<thead>
   							<tr>
@@ -94,7 +100,7 @@
 			        	
 			        	<div class="text-center">
 			        		<input type="hidden" name="user_id" id="user_id_delete" value="">
-			        		<button type="submit" class="btn btn-danger btn_delete_user">Delete</button>
+			        		<button type="submit" class="btn btn-danger">Delete</button>
 			        	</div>
 			        </form>
 			    </div>

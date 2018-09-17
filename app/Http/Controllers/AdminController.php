@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Session;
 class AdminController extends Controller
 {
     /**
@@ -36,7 +37,9 @@ class AdminController extends Controller
 
     public function deleteUser(Request $request)
     {
-        dd($request->all());
-        return User::deleteUser($request->user_id);
+        if(User::deleteUser($request->user_id)){
+            Session::flash('success', 'Delete success!');
+            return redirect()->route('admin.listUser');
+        }
     }
 }

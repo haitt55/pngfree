@@ -60,7 +60,12 @@ class User extends Authenticatable
     }
 
     public static function deleteUser($userID){
-        return self::where('id', $userID)->delete();
+        try {
+            return self::where('id', $userID)->delete();
+        } catch (Exception $e) {
+            var_dump($e); die;
+        }
+        
     }
 
     public static function getAllStatus(){

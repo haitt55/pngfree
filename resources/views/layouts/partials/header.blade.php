@@ -62,7 +62,7 @@ $categories = General::getCategoryTree();
             @endforeach
 
             <li class="ga-c" data-ga="head-nav|premium">
-                <a href="index.html?b=6" rel="nofollow" class="nav-pricing">PREMIUM
+                <a href="{{ route('home') }}?b=6" rel="nofollow" class="nav-pricing">PREMIUM
                     <i class="icon-pricing"></i>
                 </a>
             </li>
@@ -88,7 +88,7 @@ $categories = General::getCategoryTree();
                 <div class="template-pulldown tran">
                     <div>
                         <a target="_blank" class="language" data-type="de" href="https://de.pngtree.com/">Deutsch</a>
-                        <a target="_blank" class="language" data-type="en" href="index.html">English</a>
+                        <a target="_blank" class="language" data-type="en" href="{{ route('home') }}">English</a>
                         <a target="_blank" class="language" data-type="es" href="https://es.pngtree.com/">Español</a>
                         <a target="_blank" class="language" data-type="fr" href="https://fr.pngtree.com/">Français</a>
                         <a target="_blank" class="language" data-type="it" href="https://it.pngtree.com/">Italian</a>
@@ -138,7 +138,7 @@ $categories = General::getCategoryTree();
 <div id="scroll-Nav" class="v2-header scroll-Nav">
     <div class="w1520 clearfix">
         <!-- logo -->
-        <a href="index.html" class="Newlogo fl-l"></a>
+        <a href="{{ route('home') }}" class="Newlogo fl-l"></a>
 
         <!--scroll search -->
         <form class="sb-form clearfix fl-l search-box-outer">

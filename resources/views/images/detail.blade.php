@@ -383,7 +383,7 @@
                     </div>
                     <div class="sharer-info">
                         <a target="_blank" href="/pngtree_2177952?type=1" class="sharer">
-                            <span>pngtree</span>
+                            <span>vectorpng</span>
                         </a>
 
                         <p class="sharer-have"><span>Works:161</span><span>Fans:47</span><span>Ranking:7</span></p>
@@ -416,12 +416,13 @@
 
             <div class="main-body recommend-detail-element">
                 <ul class="mb-box clearfix tpl-ul">
+                    @foreach ($moreImages as $im)
                     <li>
                         <!-- Commercial use -->
                         <span class="commercial-use"></span>
                         <!-- hover -->
                         <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="3622048" data-type="1">
+                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="{{ $im->id }}" data-type="1">
                                 <i></i>
                             </a>
                             <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMjA0OA==&amp;type=1"
@@ -433,13 +434,13 @@
                         </div>
                         <!-- png -->
                         <div class="mb-picbox">
-                            <img title="Simple Cartoon Halloween design pattern"
-                                 data-original="https://png.pngtree.com/element_our/png/20180905/simple-cartoon-halloween-design-pattern-png_85689.jpg"
-                                 alt="Simple Cartoon Halloween design pattern, Fashion, Simplicity, Halloween PNG and PSD"
+                            <img title="{{ $im->title }}"
+                                 data-original="{{ $im->thumb }}"
+                                 alt="{{ $im->description }}"
                                  class="" width="100%"
-                                 src="https://png.pngtree.com/element_our/png/20180905/simple-cartoon-halloween-design-pattern-png_85689.jpg"
+                                 src="{{ $im->thumb }}"
                                  style="display: block;">
-                            <a target="_blank" href="/freepng/simple-cartoon-halloween-design-pattern_3622048.html"
+                            <a target="_blank" href="{!! route('image.detail', array('categoryPrefix' => 'freepng', 'imageSlug' => $im->slug)) !!}"
                                class="tran">
                             </a>
                         </div>
@@ -454,349 +455,7 @@
 
                         </div>
                     </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="771307" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=NzcxMzA3&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=NzcxMzA3&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>AI</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Children frame design pattern vector material"
-                                 data-original="https://png.pngtree.com/element_pic/00/16/06/25576e4c5f08095.jpg"
-                                 alt="children frame design pattern vector material, Frame Clipart, Child, Cartoon PNG and Vector"
-                                 class="" width="100%"
-                                 src="https://png.pngtree.com/element_pic/00/16/06/25576e4c5f08095.jpg"
-                                 style="display: block;">
-                            <a target="_blank" href="/freepng/children-frame-design-pattern-vector-material_771307.html"
-                               class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">children frame design pattern vector material</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">597*836</span>
-
-                            <span class="fl-r png-star"><i></i>215</span>
-
-                            <span class="fl-r png-down"><i></i>733</span>
-
-                        </div>
-                    </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="975598" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=OTc1NTk4&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=OTc1NTk4&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>AI</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Exquisite flower pattern vector border design free download"
-                                 data-original="https://png.pngtree.com/element_pic/00/16/10/1057fb1b848b511.jpg"
-                                 alt="exquisite flower pattern vector border design free download, Flower Illustration, Hand-painted Flowers, Cartoon Flowers PNG and Vector"
-                                 class="" width="100%"
-                                 src="https://png.pngtree.com/element_pic/00/16/10/1057fb1b848b511.jpg"
-                                 style="display: block;">
-                            <a target="_blank"
-                               href="/freepng/exquisite-flower-pattern-vector-border-design-free-download_975598.html"
-                               class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">exquisite flower pattern vector border design free
-                            download</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">570*570</span>
-
-                            <span class="fl-r png-star"><i></i>173</span>
-
-                            <span class="fl-r png-down"><i></i>550</span>
-
-                        </div>
-                    </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="3621953" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMTk1Mw==&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMTk1Mw==&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>PSD</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Simple Cartoon Halloween design pattern"
-                                 data-original="https://png.pngtree.com/element_our/png/20180905/simple-cartoon-halloween-design-pattern-png_87613.jpg"
-                                 alt="Simple Cartoon Halloween design pattern, Fashion, Simplicity, Halloween PNG and PSD"
-                                 class="" width="100%"
-                                 src="https://png.pngtree.com/element_our/png/20180905/simple-cartoon-halloween-design-pattern-png_87613.jpg"
-                                 style="display: block;">
-                            <a target="_blank" href="/freepng/simple-cartoon-halloween-design-pattern_3621953.html"
-                               class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">Simple Cartoon Halloween design pattern</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">1200*1200</span>
-
-                            <span class="fl-r png-star"><i></i>2</span>
-
-                            <span class="fl-r png-down"><i></i>15</span>
-
-                        </div>
-                    </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="3621984" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMTk4NA==&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMTk4NA==&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>PSD</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Simple Cartoon Halloween design pattern"
-                                 data-original="https://png.pngtree.com/element_our/png/20180905/simple-cartoon-halloween-design-pattern-png_85911.jpg"
-                                 alt="Simple Cartoon Halloween design pattern, Fashion, Simplicity, Halloween PNG and PSD"
-                                 class="" width="100%"
-                                 src="https://png.pngtree.com/element_our/png/20180905/simple-cartoon-halloween-design-pattern-png_85911.jpg"
-                                 style="display: block;">
-                            <a target="_blank" href="/freepng/simple-cartoon-halloween-design-pattern_3621984.html"
-                               class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">Simple Cartoon Halloween design pattern</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">1200*1200</span>
-
-                            <span class="fl-r png-star"><i></i>0</span>
-
-                            <span class="fl-r png-down"><i></i>0</span>
-
-                        </div>
-                    </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="3621765" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMTc2NQ==&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMTc2NQ==&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>PSD</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Simple Cartoon Halloween design pattern"
-                                 data-original="https://png.pngtree.com/element_our/png/20180905/simple-cartoon-halloween-design-pattern-png_87722.jpg"
-                                 alt="Simple Cartoon Halloween design pattern, Fashion, Simplicity, Halloween PNG and PSD"
-                                 class="" width="100%"
-                                 src="https://png.pngtree.com/element_our/png/20180905/simple-cartoon-halloween-design-pattern-png_87722.jpg"
-                                 style="display: block;">
-                            <a target="_blank" href="/freepng/simple-cartoon-halloween-design-pattern_3621765.html"
-                               class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">Simple Cartoon Halloween design pattern</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">1200*1200</span>
-
-                            <span class="fl-r png-star"><i></i>1</span>
-
-                            <span class="fl-r png-down"><i></i>0</span>
-
-                        </div>
-                    </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="3621709" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMTcwOQ==&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMTcwOQ==&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>PSD</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Simple Natural plant element design"
-                                 data-original="https://png.pngtree.com/element_our/png/20180905/simple-natural-plant-element-design-png_88446.jpg"
-                                 alt="Simple Natural plant element design, Stylish, Simple, Style PNG and PSD" class=""
-                                 width="100%"
-                                 src="https://png.pngtree.com/element_our/png/20180905/simple-natural-plant-element-design-png_88446.jpg"
-                                 style="display: block;">
-                            <a target="_blank" href="/freepng/simple-natural-plant-element-design_3621709.html"
-                               class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">Simple Natural plant element design</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">1200*1200</span>
-
-                            <span class="fl-r png-star"><i></i>0</span>
-
-                            <span class="fl-r png-down"><i></i>1</span>
-
-                        </div>
-                    </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="3622204" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMjIwNA==&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYyMjIwNA==&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>PSD</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Simple fashion Poster Design template"
-                                 data-original="https://png.pngtree.com/element_our/png/20180906/simple-fashion-poster-design-template-png_84874.jpg"
-                                 alt="Simple fashion Poster Design template, Simple, Fashion, Poster PNG and PSD"
-                                 class="" width="100%"
-                                 src="https://png.pngtree.com/element_our/png/20180906/simple-fashion-poster-design-template-png_84874.jpg"
-                                 style="display: block;">
-                            <a target="_blank" href="/freepng/simple-fashion-poster-design-template_3622204.html"
-                               class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">Simple fashion Poster Design template</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">1200*1200</span>
-
-                            <span class="fl-r png-star"><i></i>0</span>
-
-                            <span class="fl-r png-down"><i></i>0</span>
-
-                        </div>
-                    </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="1375812" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MTM3NTgxMg==&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MTM3NTgxMg==&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>AI</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Vector cartoon pattern"
-                                 data-original="https://png.pngtree.com/element_pic/16/10/28/1ba77829fcb7d5874822c29b1ff81c76.jpg"
-                                 alt="vector cartoon pattern, Vector Wedding Logo, Vector Logo, Wedding Logo PNG and Vector"
-                                 class="" width="100%"
-                                 src="https://png.pngtree.com/element_pic/16/10/28/1ba77829fcb7d5874822c29b1ff81c76.jpg"
-                                 style="display: block;">
-                            <a target="_blank" href="/freepng/vector-cartoon-pattern_1375812.html" class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">vector cartoon pattern</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">1000*688</span>
-
-                            <span class="fl-r png-star"><i></i>153</span>
-
-                            <span class="fl-r png-down"><i></i>480</span>
-
-                        </div>
-                    </li>
-                    <li>
-                        <!-- Commercial use -->
-                        <span class="commercial-use"></span>
-                        <!-- hover -->
-                        <div class="hover-show">
-                            <a href="javascript:;" class="hs-star  star-btn-click" data-id="3610866" data-type="1">
-                                <i></i>
-                            </a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYxMDg2Ng==&amp;type=1"
-                               class="hs-downPng down-jpg-click ">
-                                <i></i>PNG</a>
-                            <a rel="nofollow" target="_blank" href="/element/down?id=MzYxMDg2Ng==&amp;type=2"
-                               class="hs-downEps down-rar-click ">
-                                <i></i>PSD</a>
-                        </div>
-                        <!-- png -->
-                        <div class="mb-picbox">
-                            <img title="Simple fashion Poster Design template"
-                                 data-original="https://png.pngtree.com/element_our/png/20180829/simple-fashion-poster-design-template-png_71009.jpg"
-                                 alt="Simple fashion Poster Design template, Simple, Fashion, Poster PNG and PSD"
-                                 class="" width="100%"
-                                 src="https://png.pngtree.com/element_our/png/20180829/simple-fashion-poster-design-template-png_71009.jpg"
-                                 style="display: block;">
-                            <a target="_blank" href="/freepng/simple-fashion-poster-design-template_3610866.html"
-                               class="tran">
-                            </a>
-                        </div>
-                        <p class="pic-detail text-overflow">Simple fashion Poster Design template</p>
-                        <!-- infor -->
-                        <div class="pic-infor clearfix">
-                            <span class="fl-l">1200*1200</span>
-
-                            <span class="fl-r png-star"><i></i>3</span>
-
-                            <span class="fl-r png-down"><i></i>6</span>
-
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -867,15 +526,15 @@
 
                     <p>but you must give attribution in one of the following ways:</p>
 
-                    <p class="sl-icon"><i></i>Video: please add pngtree.com in the final credits</p>
+                    <p class="sl-icon"><i></i>Video: please add vectorpng.com in the final credits</p>
 
-                    <p class="sl-icon"><i class="icon-print"></i>Print: please add pngtree.com in the final copy</p>
+                    <p class="sl-icon"><i class="icon-print"></i>Print: please add vectorpng.com in the final copy</p>
 
                     <p class="sl-icon"><i class="icon-web"></i>Web: copy and paste the following code for attribution
                     </p>
 
                     <p style="font-size:12px;color:#999;margin: 10px auto 0;margin-left: 26px">Free images by &lt;a
-                        href="https://pngtree.com" &gt;pngtree.com&lt;/a&gt;</p>
+                        href="https://vectorpng.com" &gt;vectorpng.com&lt;/a&gt;</p>
                 </div>
                 <div class="sl-bob">
                     <p style="line-height: 48px;">Don't want to give attribution? </p>
@@ -896,7 +555,7 @@
                                 class="iconfont icon-guanbi"></i></span></h3>
 
                 <p style="line-height: 25px;padding-bottom: 25px;">If you are the copyright holder or agent in charge of
-                    this and believe that any content on the site pngtree inflicts copyright of your work, you may
+                    this and believe that any content on the site vectorpng inflicts copyright of your work, you may
                     submit a notification pursuant to the DMCA to notify standards resources which may pose an
                     infringement of the relevant licenses, all necessary information:
                 </p>
@@ -988,7 +647,7 @@
             <span class="cls-btn"></span>
 
             <div class="rlg-with-box">
-                <p class="big-tit">Login pngtree</p>
+                <p class="big-tit">Login vectorpng</p>
 
                 <p class="small-tit">with your social network.</p>
 
@@ -1047,7 +706,7 @@
             <span class="cls-btn"></span>
 
             <div class="rlg-with-box">
-                <p class="big-tit">Register pngtree</p>
+                <p class="big-tit">Register vectorpng</p>
 
                 <p class="small-tit">
 
@@ -1093,7 +752,7 @@
 
             <p class="big-tit">Thank you!</p>
 
-            <p class="small-tit"> Thank you for choosing pngtree, we already sent you an
+            <p class="small-tit"> Thank you for choosing vectorpng, we already sent you an
                 <br>email within a verification link, please click the link to
                 <br> finish the registration. If you haven't received the email
                 <br> in 1 minute, please click the resend button,

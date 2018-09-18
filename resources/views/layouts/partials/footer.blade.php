@@ -4,7 +4,7 @@
         <div class="foot-inner">
             <div class="foot-item foot-pngtree">
                 <dl>
-                    <dt>PNGTREE.COM</dt>
+                    <dt>VECTORPNG.COM</dt>
                     <dd><a rel="nofollow" href="about.html" target="_blank" class="foot-link">About</a></dd>
                     {{--<dd><a  rel="nofollow" href="invite-login.html" target="_blank" class="foot-link">Referral Program</a></dd>--}}
                     {{--<dd><a rel="nofollow" href="content.html" target="_blank" class="foot-link">Parternerships</a></dd>--}}
@@ -23,7 +23,7 @@
                     <dt>LANGUAGE</dt>
 
                     {{--<dd><a class="foot-link language" data-type="de" target="_blank" href="https://de.pngtree.com/">Deutsch</a></dd>--}}
-                    <dd><a class="foot-link language" data-type="en" target="_blank" href="index.html">English</a></dd>
+                    <dd><a class="foot-link language" data-type="en" target="_blank" href="{{ route('home') }}">English</a></dd>
                     {{--<dd><a class="foot-link language" data-type="es" target="_blank" href="https://es.pngtree.com/">Español</a></dd>--}}
                     {{--<dd><a class="foot-link language" data-type="fr" target="_blank" href="https://fr.pngtree.com/">Français</a></dd>--}}
                     {{--<dd><a class="foot-link language" data-type="it" target="_blank" href="https://it.pngtree.com/">Italian</a></dd>--}}
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="foot-bottom">
-            <p><i class="icon-pngtree"></i>2017 pngtree - All Rights Reserved &nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p><i class="icon-pngtree"></i>2017 vectorpng - All Rights Reserved &nbsp;&nbsp;&nbsp;&nbsp;</p>
         </div>
     </div>
 </div>

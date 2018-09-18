@@ -4,6 +4,7 @@ namespace App;
 
 use App\Helpers\General;
 use App\Image;
+use Illuminate\Support\Facades\DB;
 
 class Tag extends BaseModel
 {
@@ -13,4 +14,15 @@ class Tag extends BaseModel
         'slug', 'name', 'meta_description', 'meta_keywords',
         'meta_title'
     ];
+
+    public static function getTagsWithNumberOfImages()
+    {
+        $tagIds = array(10,20,30,40,50);
+        $tags = self::select('*')->whereIn('id', $tagIds)->get()->toArray();
+        foreach ($tags as $k => $v) {
+            $tags[$k]['total'] = Image::where('tag_id', 'like', '%'.$v['id'].'%')->count();
+        }
+
+        return $tags;
+    }
 }

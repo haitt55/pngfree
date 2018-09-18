@@ -22,7 +22,7 @@ use Carbon\Carbon;
     <meta name="keywords" content="png, png images, backgrounds, vectors, clipart, psd, icons, free images, free download"/>
     <meta name="description" content="Pngtree provides free download of png, png images, backgrounds and vectors. Millions of high quality free png images, PSD, AI and EPS Files are available."/>
         <meta name="p:domain_verify" content="74ad30e8d31f466cbba7d005ca022c7d"/>
-    <link rel="alternate" href="index.html" hreflang="en"/>
+    <link rel="alternate" href="{{ route('home') }}" hreflang="en"/>
                 <link rel="alternate" href="https://ar.pngtree.com/"
               hreflang="ar"/>
                 <link rel="alternate" href="https://es.pngtree.com/"
@@ -49,9 +49,9 @@ use Carbon\Carbon;
               hreflang="it"/>
                 <link rel="alternate" href="https://zh.pngtree.com/"
               hreflang="zh"/>
-    <link rel="alternate" href="index.html" hreflang="x-default"/>
+    <link rel="alternate" href="{{ route('home') }}" hreflang="x-default"/>
         <meta property="og:type" content="website"/>
-        <meta property="og:url" content="index.html"/>
+        <meta property="og:url" content="{{ route('home') }}"/>
         <meta property="fb:app_id" content="141858443049568"/>
             <meta property="og:title" content="Millions of PNG Images, Backgrounds and Vectors for Free Download | Pngtree"/>
         <meta property="og:image" content="../js2.pngtree.com/v2/images/fblogo.png" />

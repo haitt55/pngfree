@@ -17,8 +17,10 @@ class ImageController extends Controller
     public function detail($categoryPrefix, $imageSlug)
     {
         $image = Image::findBySlug($imageSlug);
+        $moreImages = Image::getAllImagesByCategory($image->category_id);
         return view('images.detail')->with(array(
-            'image' => $image
+            'image' => $image,
+            'moreImages' => $moreImages
         ));
     }
 }

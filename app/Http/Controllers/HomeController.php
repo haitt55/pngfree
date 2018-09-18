@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Image;
@@ -21,8 +22,10 @@ class HomeController extends Controller
 	public function index()
     {
         $categoryWithImages = Category::getCategoriesAndImageForIndex();
+        $tagsWithNumberOfImages = Tag::getTagsWithNumberOfImages();
         return view('index')->with(array(
-            'categoryWithImages' => $categoryWithImages
+            'categoryWithImages' => $categoryWithImages,
+            'tagsWithNumberOfImages' => $tagsWithNumberOfImages
         ));
     }
 

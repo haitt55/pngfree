@@ -12,9 +12,9 @@ $categories = General::getCategoryTree();
 <div class="new-banner-s"
      style="background: url(png.pngtree.com/indexBackground/647b3347c59a0ee8f4236d46ea8c15bb.jpg) center center no-repeat;">
     <div class="w1520">
-        <p class="logo"><a href="index.html" class="Newlogo"></a></p>
+        <p class="logo"><a href="{{ route('home') }}" class="Newlogo"></a></p>
 
-        <h2 class="title-main">3,524,844 PNG Images For Free Download</h2>
+        <h2 class="title-main">{{ number_format(\App\Helpers\General::countAllImage()) }} PNG Images For Free Download</h2>
         <!-- search -->
         <div class="serach-box">
             <div class="sb-items search-type">
@@ -39,30 +39,22 @@ $categories = General::getCategoryTree();
             </form>
             <div class="popular-tags">
                 <span>Popular tags:</span>
-                <a class="rem-click" data-type="flower" href="so/flower.html">flower <span>(251875)</span>
+                @foreach($tagsWithNumberOfImages as $tag)
+                <a class="rem-click" data-type="flower" href="{{ route('tag.index', array('tagSlug' => $tag['slug'])) }}">{{ $tag['name'] }} <span>({{ $tag['total'] }})</span>
                 </a>
-                <a class="rem-click" data-type="sport" href="so/sport.html">sport <span>(15401)</span>
-                </a>
-                <a class="rem-click" data-type="out space" href="so/out-space.html">out space
-                    <span>(13578)</span>
-                </a>
-                <a class="rem-click" data-type="ice cream" href="so/ice-cream.html">ice cream
-                    <span>(32378)</span>
-                </a>
-                <a class="rem-click" data-type="music" href="so/music.html">music <span>(28751)</span>
-                </a>
+                @endforeach
             </div>
         </div>
         <!-- tab -->
         <div class="tab-box clearfix">
-            <a class="tab king fl-l clearfix tran" target="_blank" href="designer-rank.html" rel="nofollow"
+            <a class="tab king fl-l clearfix tran" target="_blank" href="#" rel="nofollow"
                data-index-click-type="designer">
                 <div class="fl-l link-img"></div>
                 <h3>The Expert of Design<span class="to"></span></h3>
 
                 <p>The most professional designer team</p>
             </a>
-            <a class="tab download fl-l clearfix tran" target="_blank" href="down-rank.html" rel="nofollow"
+            <a class="tab download fl-l clearfix tran" target="_blank" href="#" rel="nofollow"
                data-index-click-type="download">
                 <div class="fl-l link-img"></div>
                 <h3>The Ranking of Download<span class="to"></span></h3>
@@ -70,7 +62,7 @@ $categories = General::getCategoryTree();
                 <p>Discover the design trend</p>
             </a>
             <a class="tab update fl-l clearfix tran" target="_blank"
-               href="free-graphic-designd4b4.html?sort=new" rel="nofollow" data-index-click-type="update">
+               href="free-graphic-design.html?sort=new" rel="nofollow" data-index-click-type="update">
                 <div class="fl-l link-img"></div>
                 <h3>901 Updated Today<span class="to"></span></h3>
 
@@ -183,11 +175,11 @@ $categories = General::getCategoryTree();
                             <i></i>
                         </a>
                         <a target="_blank" data-ga="{{ $images['id'] }}_PNG" rel="nofollow"
-                           href="index.html?id=MzYwMjc2NQ==&amp;type=1"
+                           href="{{ route('home') }}?id=MzYwMjc2NQ==&amp;type=1"
                            class="hs-downPng down-jpg-click element-click">
                             <i></i>PNG</a>
                         <a target="_blank" data-ga="{{ $images['id'] }}_PSD" rel="nofollow"
-                           href="index.html?id=MzYwMjc2NQ==&amp;type=2"
+                           href="{{ route('home') }}?id=MzYwMjc2NQ==&amp;type=2"
                            class="hs-downEps down-rar-click element-click">
                             <i></i>PSD</a>
                     </div>
@@ -212,7 +204,7 @@ $categories = General::getCategoryTree();
                                 <a class="fl-l infor-name template-click" data-ga="MzU5Nzg4OQ==_DesigerUrl"
                                    rel="nofollow" href="pngtree_2177952.html">
                                     <img data-original="//js2.pngtree.com/user_profile/head_img/014-travel.png"
-                                         alt="pngtree" class="lazy"> pngtree</a>
+                                         alt="pngtree" class="lazy"> vectorpng</a>
                         @endif
 
                 <span class="fl-r png-star">
@@ -273,7 +265,7 @@ $categories = General::getCategoryTree();
                                     <a href="javascript:;" class="fl-r btn-down">405</a>
                                 </div>
                                 <div class="hover-box tran">
-                                    <a target="_blank" rel="nofollow" data-ga="{{ $image['id'] }}_Down" href="index.html?id=NjAxNTI="
+                                    <a target="_blank" rel="nofollow" data-ga="{{ $image['id'] }}_Down" href="{{ route('home') }}?id=NjAxNTI="
                                        class="ppt-click btn-drown template-down-file down-rar-click ppt-down-file "
                                        data-id="{{ $image['id'] }}"></a>
                                 </div>
@@ -316,7 +308,7 @@ $categories = General::getCategoryTree();
                                        data-type="2" data-ga="{{ $image['id'] }}_Like">
                                         <i></i>
                                     </a>
-                                    <a target="_blank" rel="nofollow" href="index.html?id=ODg5MTQz&amp;type=1"
+                                    <a target="_blank" rel="nofollow" href="{{ route('home') }}?id=ODg5MTQz&amp;type=1"
                                        data-ga="ODg5MTQz_JPG" class="hs-downPng down-jpg-click ppt-click">
                                         <i></i>JPG</a>
                                 </div>
@@ -405,7 +397,7 @@ $categories = General::getCategoryTree();
 
             <p>Join Premium and get 4 millions graphics resource from $19.9</p>
 
-            <a href="index.html?b=2" target="_blank" class="bepUser-btn">Join now</a>
+            <a href="{{ route('home') }}?b=2" target="_blank" class="bepUser-btn">Join now</a>
         </div>
     </div>
 </div>
@@ -474,7 +466,7 @@ $categories = General::getCategoryTree();
             <span class="cls-btn"></span>
 
             <div class="rlg-with-box">
-                <p class="big-tit">Login pngtree</p>
+                <p class="big-tit">Login vectorpng</p>
 
                 <p class="small-tit">with your social network.</p>
 
@@ -533,7 +525,7 @@ $categories = General::getCategoryTree();
             <span class="cls-btn"></span>
 
             <div class="rlg-with-box">
-                <p class="big-tit">Register pngtree</p>
+                <p class="big-tit">Register vectorpng</p>
 
                 <p class="small-tit">
 
@@ -583,7 +575,7 @@ $categories = General::getCategoryTree();
 
             <p class="big-tit">Thank you!</p>
 
-            <p class="small-tit"> Thank you for choosing pngtree, we already sent you an
+            <p class="small-tit"> Thank you for choosing vectorpng, we already sent you an
                 <br/>email within a verification link, please click the link to
                 <br/> finish the registration. If you haven't received the email
                 <br/> in 1 minute, please click the resend button,
@@ -607,7 +599,7 @@ $categories = General::getCategoryTree();
             <h3>Upgrade to Premium for unlimited downloading.</h3>
 
             <p>You have reached your daily download limit as free user.</p>
-            <a href="index.html?b=3" target="_blank" class="bepUser-btn">Become a Premium user</a>
+            <a href="{{ route('home') }}?b=3" target="_blank" class="bepUser-btn">Become a Premium user</a>
         </div>
     </div>
 </div>
@@ -637,7 +629,7 @@ $categories = General::getCategoryTree();
             <h3>Upgrade to Premium for unlimited downloading.</h3>
 
             <p>You have reached your daily download limit as Basic user.</p>
-            <a href="index.html?b=4" class="bepUser-btn">Become a Premium user</a>
+            <a href="{{ route('home') }}?b=4" class="bepUser-btn">Become a Premium user</a>
         </div>
     </div>
 </div>
@@ -659,7 +651,7 @@ $categories = General::getCategoryTree();
                                 class="ulc-one">Free Download</span> <span class="ulc-two">0 free downloads left today</span></a>
                 </div>
                 <p>Upgrade to Premium for unlimited downloading</p>
-                <a target="_blank" href="index.html?b=5" class="download">Premium Download</a>
+                <a target="_blank" href="{{ route('home') }}?b=5" class="download">Premium Download</a>
             </div>
         </div>
     </div>
@@ -694,7 +686,7 @@ $categories = General::getCategoryTree();
             </div>
             <div class="sp-bottom">
                 <p>Upgrade to Premium for unlimited downloading</p>
-                <a href="index.html" id="go-to-pay" class="sp-upgrade">Subscribe now</a>
+                <a href="{{ route('home') }}" id="go-to-pay" class="sp-upgrade">Subscribe now</a>
             </div>
         </div>
     </div>
@@ -716,7 +708,7 @@ $categories = General::getCategoryTree();
         </div>
         <div class="hover-window-foot">
             <div class="hover-window-img"></div>
-            <a href="index.html" class="hover-window-click seo-alert-back">click here&gt;</a>
+            <a href="{{ route('home') }}" class="hover-window-click seo-alert-back">click here&gt;</a>
         </div>
     </div>
 </div>
@@ -753,7 +745,7 @@ $categories = General::getCategoryTree();
                 <h4 class="download-window-title">Templates only for Premium member.</h4>
 
                 <p class="download-window-text">Upgrade to premium plan to experience unlimited download.</p>
-                <a href="index.html" target="_blank" class="download-window-link">Go Premium</a>
+                <a href="{{ route('home') }}" target="_blank" class="download-window-link">Go Premium</a>
             </div>
         </div>
     </div>
@@ -765,7 +757,7 @@ $categories = General::getCategoryTree();
         <div class="levelUp-window">
             <div class="levelUp-window-light"></div>
             <span class="levelUp-window-close"></span>
-            <a target="_blank" href="index.html" class="levelUp-window-link">
+            <a target="_blank" href="{{ route('home') }}" class="levelUp-window-link">
                 <div class="levelUp-window-inner">
                     <i class="levelUp-window-toLevel "></i>
                     <h4 class="levelUp-window-title">Congrats!</h4>

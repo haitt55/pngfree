@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use App\Category;
 use DB;
+use App\Image;
 
 class General
 {
@@ -154,5 +155,11 @@ class General
 
     public static function toCamelCase() {
 
+    }
+
+    public static function countAllImage() {
+        $count = Image::all()->count();
+
+        return $count;
     }
 }

@@ -30,32 +30,35 @@ Route::group([
     // socialite
     Route::get('login/social/{provider}', 'Front\SocialController@redirectToProvider')->name('social_redirect');
     Route::get('login/social/{provider}/callback', 'Front\SocialController@handleProviderCallback')->name('social_callback');
+    // local
+    Route::post('register', 'Front\AuthController@register')->name('register');
+    Route::post('login', 'Front\AuthController@login')->name('login');
 
-    Route::get('logout', 'Auth\LoginController@logout')
-        ->name('logout');
-    Route::get('login', 'Auth\LoginController@loginView')
-        ->name('login.view');
-    Route::post('login/post', 'Auth\LoginController@loginPost')
-        ->name('login.post');
-    Route::get('login/facebook', 'Auth\LoginController@loginFacebook')
-        ->name('login.facebook');
-    Route::get('login/facebook/callback', 'Auth\LoginController@loginFacebookCallback')
-        ->name('login.facebook.callback');
-    Route::any('register', 'Auth\RegisterController@showRegistrationForm')
-        ->name('register.view');
-    Route::any('register/confirm', 'Auth\RegisterController@registerConfirm')
-        ->name('register.confirm');
-    Route::post('register/post', 'Auth\RegisterController@postRegister')
-        ->name('register.post');
-    Route::get('register/success', 'Auth\RegisterController@success')
-        ->name('register.success');
+    // Route::get('logout', 'Auth\LoginController@logout')
+    //     ->name('logout');
+    // Route::get('login', 'Auth\LoginController@loginView')
+    //     ->name('login.view');
+    // Route::post('login/post', 'Auth\LoginController@loginPost')
+    //     ->name('login.post');
+    // Route::get('login/facebook', 'Auth\LoginController@loginFacebook')
+    //     ->name('login.facebook');
+    // Route::get('login/facebook/callback', 'Auth\LoginController@loginFacebookCallback')
+    //     ->name('login.facebook.callback');
+    // Route::any('register', 'Auth\RegisterController@showRegistrationForm')
+    //     ->name('register.view');
+    // Route::any('register/confirm', 'Auth\RegisterController@registerConfirm')
+    //     ->name('register.confirm');
+    // Route::post('register/post', 'Auth\RegisterController@postRegister')
+    //     ->name('register.post');
+    // Route::get('register/success', 'Auth\RegisterController@success')
+    //     ->name('register.success');
 
-    Route::get('forgot/password', 'Auth\ForgotPasswordController@showLinkRequestForm')
-        ->name('forgot.password');
-    Route::post('forgot/password/mail', 'Auth\ForgotPasswordController@sendLinkToEmail')
-        ->name('forgot.password.mail');
-    Route::get('forgot/mail/success', 'Auth\ForgotPasswordController@sendForgotLinkSuccess')
-        ->name('mail.reset.success');
+    // Route::get('forgot/password', 'Auth\ForgotPasswordController@showLinkRequestForm')
+    //     ->name('forgot.password');
+    // Route::post('forgot/password/mail', 'Auth\ForgotPasswordController@sendLinkToEmail')
+    //     ->name('forgot.password.mail');
+    // Route::get('forgot/mail/success', 'Auth\ForgotPasswordController@sendForgotLinkSuccess')
+    //     ->name('mail.reset.success');
 
-    Route::view('/reset-password/success', 'guest.reset_password', ['status' => 1]);
+    // Route::view('/reset-password/success', 'guest.reset_password', ['status' => 1]);
 });

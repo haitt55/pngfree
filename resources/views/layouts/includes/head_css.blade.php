@@ -117,5 +117,6 @@ use Carbon\Carbon;
 <link href="v2/css/v2/indexf3db.css?v=2018081119" rel="stylesheet">
 <link href="v2/css/v2/coupon/couponf3db.css?v=2018081119" rel="stylesheet">
 <link href="v2/css/v2/subpagef3db.css?v=2018081119" rel="stylesheet">
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
 @yield('css')

@@ -2038,14 +2038,15 @@ $categories = General::getCategoryTree();
                 <div class="fg-line">
                     or
                 </div>
-                <form action="{{ route() }}">
+                <form action="{{ route('auth.register') }}" class="form-register">
+                    @csrf
                     <input type="text" id="base-public-login-username-regiser-text" maxlength="255"
                            placeholder="Name" name="name"/>
                     <input type="email" id="base-public-login-email-regiser-text" maxlength="100"
                            placeholder="Email" name="email"/>
                     <input type="password" id="base-public-login-password-regiser-text" maxlength="20"
                            placeholder="Password" class="pwdPut" name="password"/>
-                    <button class="ipt-btn" id="btn-register"/>Register</button>
+                    <button class="ipt-btn" id="btn-register" type="submit" />Register</button>
                 </form>
                 <p class="wx-prompt">Already have an account?
                     <a href="javascript:;" id="base-login-trigger" class="login-trigger">Log in</a>
@@ -2298,5 +2299,6 @@ $categories = General::getCategoryTree();
             $('.load-page-time').html(g_bdTime);
         });
     </script>
-    <script type="text/javascript" src="{!!asset('js/guest/login.js')!!}"></script>
+    <!-- <script type="text/javascript" src="{!!asset('js/guest/login.js')!!}"></script> -->
+    <script type="text/javascript" src="{!!asset('js/auth.js')!!}"></script>
 @endsection

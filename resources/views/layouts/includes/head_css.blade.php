@@ -22,7 +22,7 @@ use Carbon\Carbon;
     <meta name="keywords" content="png, png images, backgrounds, vectors, clipart, psd, icons, free images, free download"/>
     <meta name="description" content="Pngtree provides free download of png, png images, backgrounds and vectors. Millions of high quality free png images, PSD, AI and EPS Files are available."/>
         <meta name="p:domain_verify" content="74ad30e8d31f466cbba7d005ca022c7d"/>
-    <link rel="alternate" href="index.html" hreflang="en"/>
+    <link rel="alternate" href="{{ route('home') }}" hreflang="en"/>
                 <link rel="alternate" href="https://ar.pngtree.com/"
               hreflang="ar"/>
                 <link rel="alternate" href="https://es.pngtree.com/"
@@ -49,9 +49,9 @@ use Carbon\Carbon;
               hreflang="it"/>
                 <link rel="alternate" href="https://zh.pngtree.com/"
               hreflang="zh"/>
-    <link rel="alternate" href="index.html" hreflang="x-default"/>
+    <link rel="alternate" href="{{ route('home') }}" hreflang="x-default"/>
         <meta property="og:type" content="website"/>
-        <meta property="og:url" content="index.html"/>
+        <meta property="og:url" content="{{ route('home') }}"/>
         <meta property="fb:app_id" content="141858443049568"/>
             <meta property="og:title" content="Millions of PNG Images, Backgrounds and Vectors for Free Download | Pngtree"/>
         <meta property="og:image" content="../js2.pngtree.com/v2/images/fblogo.png" />
@@ -96,8 +96,6 @@ use Carbon\Carbon;
             ga('pngtree.send', 'pageview');
         });
 
-
-    <!-- Facebook Pixel Code -->
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -113,10 +111,12 @@ use Carbon\Carbon;
         <img height="1" width="1" src="https://www.facebook.com/tr?id=822036991323387&amp;ev=PageView&amp;noscript=1"/>
     </noscript>
 
-<link href="v2/css/v2/basef3db.css?v=2018081119" rel="stylesheet">
-<link href="v2/css/v2/indexf3db.css?v=2018081119" rel="stylesheet">
-<link href="v2/css/v2/coupon/couponf3db.css?v=2018081119" rel="stylesheet">
-<link href="v2/css/v2/subpagef3db.css?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/basef3db.css') }}" rel="stylesheet">
+<link href="{{ url('v2/css/v2/indexf3db.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/coupon/couponf3db.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/subpagef3db.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/details/details.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ url('v2/css/v2/bnPic-listf3db.css') }}?v=2018081119" rel="stylesheet">
 <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
 @yield('css')

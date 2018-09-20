@@ -2,7 +2,9 @@
 
 namespace App\Helpers;
 
+use App\Category;
 use DB;
+use App\Image;
 
 class General
 {
@@ -11,6 +13,11 @@ class General
     const LEVEL2 = 1;
     const LEVEL3 = 2;
 
+    /**
+     * get category tree
+     *
+     * @return mixed
+     */
     public static function getCategoryTree() {
         $categoriesLv1 = DB::table('categories')->where('level', self::LEVEL1)->get()->toArray();
         $categoriesLv2 = DB::table('categories')->where('level', self::LEVEL2)->get()->toArray();
@@ -60,5 +67,99 @@ class General
         }
 
         return $categoriesLv1;
+    }
+
+    /**
+     * check category for special display
+     *
+     * @param $categoryName
+     */
+    public static function checkCategory($categoryName)
+    {
+        if (strpos(strtolower($categoryName), 'graphic') !== false) {
+            return Category::GRAPHIC_DESIGN;
+        } elseif (strpos(strtolower($categoryName), 'template') !== false) {
+            return Category::TEMPLATES;
+        } elseif (strpos(strtolower($categoryName), 'font') !== false) {
+            return Category::ART_FONT;
+        } elseif (strpos(strtolower($categoryName), 'powerpoint') !== false) {
+            return Category::POWER_POINT;
+        } elseif (strpos(strtolower($categoryName), 'icon') !== false) {
+            return Category::ICON;
+        } elseif (strpos(strtolower($categoryName), 'ground') !== false) {
+            return Category::BACK_GROUND;
+        } else {
+            //
+        }
+        return 0;
+    }
+
+    public static function getDivClassIndex($categoryName) {
+        $common = '-photobox';
+        if (strpos(strtolower($categoryName), 'graphic') !== false) {
+            return 'gd' . $common;
+        } elseif (strpos(strtolower($categoryName), 'template') !== false) {
+            return 'et' . $common;
+        } elseif (strpos(strtolower($categoryName), 'font') !== false) {
+            return 'gd' . $common;
+        } elseif (strpos(strtolower($categoryName), 'powerpoint') !== false) {
+            return 'ppt' . $common;
+        } elseif (strpos(strtolower($categoryName), 'icon') !== false) {
+            return 'gd' . $common;
+        } elseif (strpos(strtolower($categoryName), 'ground') !== false) {
+            return 'lb' . $common;
+        } else {
+            //
+        }
+        return '';
+    }
+
+    public static function getUlClassIndex($categoryName) {
+        $common = '-photobox';
+        if (strpos(strtolower($categoryName), 'graphic') !== false) {
+            return 'gd' . $common;
+        } elseif (strpos(strtolower($categoryName), 'template') !== false) {
+            return 'et' . $common;
+        } elseif (strpos(strtolower($categoryName), 'font') !== false) {
+            return 'gd' . $common;
+        } elseif (strpos(strtolower($categoryName), 'powerpoint') !== false) {
+            return 'ppt' . $common;
+        } elseif (strpos(strtolower($categoryName), 'icon') !== false) {
+            return 'gd' . $common;
+        } elseif (strpos(strtolower($categoryName), 'ground') !== false) {
+            return 'lb' . $common;
+        } else {
+            //
+        }
+        return '';
+    }
+
+    public static function getPicBoxClass($categoryName) {
+        if (strpos(strtolower($categoryName), 'graphic') !== false) {
+            return 'mb-picbox';
+        } elseif (strpos(strtolower($categoryName), 'template') !== false) {
+            return 'mb-picbox';
+        } elseif (strpos(strtolower($categoryName), 'font') !== false) {
+            return 'mb-picbox';
+        } elseif (strpos(strtolower($categoryName), 'powerpoint') !== false) {
+            return 'gd';
+        } elseif (strpos(strtolower($categoryName), 'icon') !== false) {
+            return 'bacPng-box';
+        } elseif (strpos(strtolower($categoryName), 'ground') !== false) {
+            return 'bacPng-box';
+        } else {
+            //
+        }
+        return '';
+    }
+
+    public static function toCamelCase() {
+
+    }
+
+    public static function countAllImage() {
+        $count = Image::all()->count();
+
+        return $count;
     }
 }

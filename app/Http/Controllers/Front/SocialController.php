@@ -52,6 +52,6 @@ class SocialController extends AbstractFrontController
             $userData->fill($data)->save();
         }
         auth()->login($userData, $remember = true);
-        return redirect()->route('front.home');
+        return redirect()->route('home');
     }
 }

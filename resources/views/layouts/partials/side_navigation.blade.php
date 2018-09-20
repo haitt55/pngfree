@@ -4,7 +4,7 @@
         <h6 class="side-card-title">Share and get free downloads</h6>
         <div class="side-card-contain" style="display: none;">
             <div class="side-card-copy">
-            <span class="side-card-copytext">https://pngtree.com/invite-login/MA==?f=lk</span>
+            <span class="side-card-copytext">https://vectorpng.com/invite-login/MA==?f=lk</span>
             <a href="javascript:;" class="side-card-copybtn" data-share="sidelk">Copy</a>
             </div>
             <div class="side-card-linkgroup">

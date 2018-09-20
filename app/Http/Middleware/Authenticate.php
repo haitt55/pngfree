@@ -15,7 +15,10 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        $user = auth()->user();
+        $user = null;
+        if (auth()->check() || auth()->viaRemember()) {
+            $user = auth()->user();
+        }
         view()->share('userLoggedIn', $user);
         return $next($request);
     }

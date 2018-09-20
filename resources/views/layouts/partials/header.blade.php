@@ -11,37 +11,58 @@ $categories = General::getCategoryTree();
         <!-- Topnav -->
         <ul class="fl-l Topnav">
             @foreach ($categories as $category1)
-                <li class="pulldown-box ga-c @if ($category1['is_head_red']) head-redbtn @endif" data-ga="head-nav|element">
-                    <a href="{{ $category1['slug'] }}.html">{{ $category1['name'] }}</a>
-                    <div class="drop-down tran">
+                <li class="@if(\App\Helpers\General::checkCategory($category1['name']) != \App\Category::ART_FONT) pulldown-box @endif
+                    ga-c @if ($category1['is_head_red']) head-redbtn @endif" data-ga="head-nav|element">
+                    <a href="{{ route('category.index', array('categorySlug' => $category1['slug'])) }}">{{ $category1['name'] }}</a>
+                    @if ($category1['childs'])
+                    <div class="
+                        @if(\App\Helpers\General::checkCategory($category1['name']) != \App\Category::POWER_POINT
+                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::ICON
+                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::TEMPLATES)
+                            drop-down
+                        @else
+                            template-pulldown
+                        @endif
+                    tran">
+                        @if(\App\Helpers\General::checkCategory($category1['name']) != \App\Category::POWER_POINT
+                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::ICON
+                        && \App\Helpers\General::checkCategory($category1['name']) != \App\Category::TEMPLATES)
                         <ul class="mainCont">
                             @foreach ($category1['childs'] as $category2)
                             <li class="mc-lists @if ($loop->first) on @endif">
-                                <a href="{{ $category2['slug'] }}.html" target="_blank" class="btn-classify"
+                                <a href="{{ route('category.index', array('categorySlug' => $category2['slug'])) }}" target="_blank" class="btn-classify"
                                    data-type="exquisite">{{ $category2['name'] }}</a>
                                 <div class="clearfix vfp-cont  tran">
                                     <h3>
-                                        <a href="{{ $category2['slug'] }}.html" target="_blank"> {{ $category2['name'] }} @if ($category2['is_new'])<b
+                                        <a href="{{ route('category.index', array('categorySlug' => $category2['slug'])) }}" target="_blank"> {{ $category2['name'] }} @if ($category2['is_new'])<b
                                                     class="new-tips">NEW</b>@endif</a>
                                     </h3>
                                     @foreach ($category2['childs'] as $category3)
-                                        <a href="{{ $category3['slug'] }}.html" target="_blank" title="{{ $category3['name'] }}">{{ $category3['name'] }}</a>
+                                        <a href="{{ route('category.index', array('categorySlug' => $category3['slug'])) }}" target="_blank" title="{{ $category3['name'] }}">{{ $category3['name'] }}</a>
                                     @endforeach
                                 </div>
                             </li>
                             @endforeach
                         </ul>
+                        @else
+                            <div>
+                                @foreach ($category1['childs'] as $category2)
+                                <a rel="nofollow" href="{{ route('category.index', array('categorySlug' => $category2['slug'])) }}"  target="_blank" title="{{ $category2['name'] }}">{{ $category2['name'] }}</a>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
+                    @endif
                     @if ($category1['is_head_red'])
                     <div class="red-pull">
-                        <a href="{{ $category1['slug'] }}.html" title="">Copyright</a>
+                        <a href="{{ route('category.index', array('categorySlug' => $category1['slug'])) }}" title="">Copyright</a>
                     </div>
                     @endif
                 </li>
             @endforeach
 
             <li class="ga-c" data-ga="head-nav|premium">
-                <a href="index.html?b=6" rel="nofollow" class="nav-pricing">PREMIUM
+                <a href="{{ route('home') }}?b=6" rel="nofollow" class="nav-pricing">PREMIUM
                     <i class="icon-pricing"></i>
                 </a>
             </li>
@@ -67,7 +88,7 @@ $categories = General::getCategoryTree();
                 <div class="template-pulldown tran">
                     <div>
                         <a target="_blank" class="language" data-type="de" href="https://de.pngtree.com/">Deutsch</a>
-                        <a target="_blank" class="language" data-type="en" href="index.html">English</a>
+                        <a target="_blank" class="language" data-type="en" href="{{ route('home') }}">English</a>
                         <a target="_blank" class="language" data-type="es" href="https://es.pngtree.com/">Español</a>
                         <a target="_blank" class="language" data-type="fr" href="https://fr.pngtree.com/">Français</a>
                         <a target="_blank" class="language" data-type="it" href="https://it.pngtree.com/">Italian</a>
@@ -123,7 +144,7 @@ $categories = General::getCategoryTree();
 <div id="scroll-Nav" class="v2-header scroll-Nav">
     <div class="w1520 clearfix">
         <!-- logo -->
-        <a href="index.html" class="Newlogo fl-l"></a>
+        <a href="{{ route('home') }}" class="Newlogo fl-l"></a>
 
         <!--scroll search -->
         <form class="sb-form clearfix fl-l search-box-outer">

@@ -17,7 +17,7 @@ class AuthController extends AbstractFrontController
     public function logout()
     {
         auth()->logout();
-        return redirect()->route('front.home');
+        return redirect()->route('home');
     }
 
     /**
@@ -41,8 +41,9 @@ class AuthController extends AbstractFrontController
      */
     public function login(UserLoginRequest $req)
     {
-        if (auth()->attemp(['email' => $req->email, 'password' => $req->password])) {
-            return response()->json();
+        if (auth()->attempt(['email' => $req->email, 'password' => $req->password], (boolean) $req->remember)) {
+            return response()->json(['success' => true]);
         }
+        return response()->json(['success' => false, 'message' => 'User or password not found.']);
     }
 }

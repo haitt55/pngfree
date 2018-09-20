@@ -20,9 +20,9 @@
     </div>
     <div class="lpa-three">
         <h3>Vision</h3>
-        <p>At very beginning of pngtree was founded, we faced different barriers, we hesitated, we </p>
+        <p>At very beginning of vectorpng was founded, we faced different barriers, we hesitated, we </p>
         <p>doubted, once even we wanted to give up, later, one letter changed us. “Thank you </p>
-        <p>pngtree,for all the good graphics which helped me in all my design”, we were encouraged </p>
+        <p>vectorpng,for all the good graphics which helped me in all my design”, we were encouraged </p>
         <p>by one of user’s letter. “Help all the designersin the world to make design easier, faster, </p>
         <p>more creative” then became our vision.</p>
         <ul class="line">

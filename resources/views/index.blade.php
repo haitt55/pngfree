@@ -469,15 +469,16 @@ $categories = General::getCategoryTree();
                 <p class="big-tit">Login vectorpng</p>
 
                 <p class="small-tit">with your social network.</p>
-
-                <div class="share-website clearfix ">
-                    <a href="javascript:;" data-type="gg" class="btn-google base-go-login fl-l">
-                        <i class="icon-google"></i>Google</a>
-                    <a href="javascript:;" data-type="fb" class="btn-facebook base-go-login fl-l">
-                        <i class="icon-facebook"></i>Facebook</a>
-                    <a href="javascript:;" data-type="tt" class="btn-twitter base-go-login fl-l">
-                        <i class="icon-twitter"></i>Twitter</a>
-                </div>
+                    <div class="share-website clearfix ">
+                        <div class="share-website clearfix ">
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'google']) }}" class="btn-google  fl-l">
+                            <i class="icon-google"></i>Google</a>
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'facebook']) }}" class="btn-facebook fl-l">
+                            <i class="icon-facebook"></i>Facebook</a>
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'twitter']) }}" class="btn-twitter  fl-l">
+                            <i class="icon-twitter"></i>Twitter</a>
+                    </div>
+                    </div>
             </div>
             <div class="fg-line"> or</div>
             <!-- 快速登录部分 -->
@@ -498,14 +499,12 @@ $categories = General::getCategoryTree();
                 </p>
             </div>
             <!-- 其他账号登录部分 -->
-            <form action="#" class="other-account">
-                <input type="email" maxlength="100" id="base-public-login-email-text" placeholder="Email"/>
-                <input type="password" maxlength="20" id="base-public-login-password-text"
-                       placeholder="Password" class="pwdPut"/>
-                <input type="checkbox" id="remember-me" checked="checked"><label class="remember-me"
-                                                                                 for="remember-me">Remember
-                    me</label>
-                <a class="ipt-btn" id="base-sub-Login-Btn"/>Login</a>
+            <form action="{{ route('auth.login') }}" class="form-login">
+                @csrf
+                <input type="email" maxlength="100" id="base-public-login-email-text" placeholder="Email" name="email" />
+                <input type="password" maxlength="20" id="base-public-login-password-text" placeholder="Password" class="pwdPut" name="password"/>
+                <input type="checkbox" id="remember-me" checked="checked" name="remember"><label class="remember-me" for="remember-me">Remember me</label>
+                <button class="ipt-btn" id="btn-login" type="submit" />Login</button>
                 <p class="wx-prompt">
                     <a href="password/find.html" style="" class="reg-trigger">Reset my password</a>
                                     <span class="fl-r">Not a member?
@@ -530,42 +529,31 @@ $categories = General::getCategoryTree();
                 <p class="small-tit">
 
                 </p>
-
-                <div class="share-website clearfix ">
-                    <!--                    <a href="javascript:;" data-type="fb" style="display: none;"  class="btn-facebook base-go-login fl-l"><i class="icon-facebook"></i>Facebook</a>-->
-                    <a href="javascript:;" data-type="gg" class="btn-google base-go-login fl-l">
-                        <i class="icon-google"></i>Google</a>
-                    <a href="javascript:;" data-type="fb" class="btn-facebook base-go-login fl-l">
-                        <i class="icon-facebook"></i>Facebook</a>
-                    <a href="javascript:;" data-type="tt" class="btn-twitter base-go-login fl-l">
-                        <i class="icon-twitter"></i>Twitter</a>
-                </div>
-            </div>
-            <div class="fg-line">
-                or
-            </div>
-            <form action="#">
-                <input type="text" id="base-public-login-username-regiser-text" maxlength="255"
-                       placeholder="Username"/>
-                <input type="email" id="base-public-login-email-regiser-text" maxlength="100"
-                       placeholder="Email"/>
-                <input type="password" id="base-public-login-password-regiser-text" maxlength="20"
-                       placeholder="Password" class="pwdPut"
-                        />
-
-                <div class="input-code-box clearfix">
-                    <input type="text" class="input-code" placeholder="Verification code">
-
-                    <div class="verification-code">
-                        <img src="#" onclick="Pngtree.BaseFun.captcha()" title="click refresh"
-                             alt="click refresh">
+                    <div class="share-website clearfix ">
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'google']) }}" class="btn-google  fl-l">
+                            <i class="icon-google"></i>Google</a>
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'facebook']) }}" class="btn-facebook fl-l">
+                            <i class="icon-facebook"></i>Facebook</a>
+                        <a href="{{ route('auth.social_redirect', ['provider' => 'twitter']) }}" class="btn-twitter  fl-l">
+                            <i class="icon-twitter"></i>Twitter</a>
                     </div>
                 </div>
-                <a class="ipt-btn" id="base-sub-regist-Btn"/>Register</a>
-            </form>
-            <p class="wx-prompt">Already have an account?
-                <a href="javascript:;" id="base-login-trigger" class="login-trigger">Log in</a>
-            </p>
+                <div class="fg-line">
+                    or
+                </div>
+                <form action="{{ route('auth.register') }}" class="form-register">
+                    @csrf
+                    <input type="text" id="base-public-login-username-regiser-text" maxlength="255"
+                           placeholder="Name" name="name"/>
+                    <input type="email" id="base-public-login-email-regiser-text" maxlength="100"
+                           placeholder="Email" name="email"/>
+                    <input type="password" id="base-public-login-password-regiser-text" maxlength="20"
+                           placeholder="Password" class="pwdPut" name="password"/>
+                    <button class="ipt-btn" id="btn-register" type="submit" />Register</button>
+                </form>
+                <p class="wx-prompt">Already have an account?
+                    <a href="javascript:;" id="base-login-trigger" class="login-trigger">Log in</a>
+                </p>
 
         </div>
 
@@ -815,4 +803,5 @@ $categories = General::getCategoryTree();
     });
 </script>
 <script type="text/javascript" src="{!!asset('js/guest/login.js')!!}"></script>
+<script type="text/javascript" src="{!!asset('js/auth.js')!!}"></script>
 @endsection

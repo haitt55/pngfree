@@ -96,8 +96,6 @@ use Carbon\Carbon;
             ga('pngtree.send', 'pageview');
         });
 
-
-    <!-- Facebook Pixel Code -->
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -119,5 +117,6 @@ use Carbon\Carbon;
 <link href="{{ url('v2/css/v2/subpagef3db.css') }}?v=2018081119" rel="stylesheet">
 <link href="{{ url('v2/css/v2/details/details.css') }}?v=2018081119" rel="stylesheet">
 <link href="{{ url('v2/css/v2/bnPic-listf3db.css') }}?v=2018081119" rel="stylesheet">
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
 @yield('css')

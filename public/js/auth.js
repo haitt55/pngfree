@@ -5,6 +5,12 @@
 	        $(this).removeClass("zoomIn")
 	    })
 	});
+
+	$('.base-public-register-button').click(function() {
+		$("#base-register-window").show().find(".tkw-registerCont").addClass("zoomIn").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function() {
+	        $(this).removeClass("zoomIn")
+	    })
+	});
 	
 
     $(".tkw-main").on("click", ".cls-btn", function() {

@@ -5,17 +5,13 @@ namespace App\Http\Controllers\Front;
 use App\Helpers\General;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class HomeController extends AbstractFrontController
 {
 
     protected $categories;
-
-    public function __construct()
-    {
-        $this->categories = General::getCategoryTree();
-    }
 
     public function index()
     {
@@ -29,6 +25,6 @@ class HomeController extends AbstractFrontController
 
     public function search(Request $req)
     {
-
+        return Image::search($req->query());
     }
 }

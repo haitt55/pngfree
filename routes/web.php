@@ -44,8 +44,8 @@ Route::group([
     Route::get('logout', 'Front\AuthController@logout')->name('logout');
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/search', 'HomeController@search')->name('search');
-    Route::view('/about.html', 'pages.about');
-    Route::view('/terms-of-service.html', 'pages.terms_of_service');
+    Route::view('/about.html', 'front.about');
+    Route::view('/terms-of-service.html', 'front.terms_of_service');
     Route::get('/{categorySlug}.html', 'CategoryController@index')->name('category.index');
     Route::get('/so/{tagSlug}.html', 'TagController@index')->name('tag.index');
     Route::get('/{categoryPrefix}/{imageSlug}', 'ImageController@detail')->where('imageSlug', '^.{1,255}$')->name('image.detail');

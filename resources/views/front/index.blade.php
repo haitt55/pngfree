@@ -2,8 +2,6 @@
     use App\Helpers\General;
     use App\Models\Category;
     use App\Models\Image;
-    
-    $categories = General::getCategoryTree();
 ?>
 @extends('layouts.default')
 @section('title', 'ログイン')
@@ -23,19 +21,7 @@
                 <a href="javascript:;" class="@if($loop->first) on @endif" data-type='{{ $category['id'] }}'>{{ $category['name'] }}</a>
                 @endforeach
             </div>
-            <form class="sb-form clearfix">
-                <input type="text" placeholder="Search Graphic Design"
-                    class="sb-input fl-l comment-search-keyword-box-input">
-                <a href="javascript:;" class="sb-btn fl-l search-box-input-index">
-                <i></i>
-                </a>
-                <!--首页搜索推荐下拉框-->
-                <div class="search-dropdown-wrap comment-search-dropdown-wrap" id="search-dropdown-wrap">
-                    <div class="search-dropdown">
-                    </div>
-                </div>
-                <!--首页搜索推荐下拉框 end-->
-            </form>
+            @include('front._partials.search_form')
             <div class="popular-tags">
                 <span>Popular tags:</span>
                 @foreach($tagsWithNumberOfImages as $tag)

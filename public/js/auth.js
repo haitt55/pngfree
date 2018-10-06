@@ -1,4 +1,17 @@
 (function() {
+
+	$('.base-public-login-button').click(function() {
+		$("#base-public-login").show().find(".tkw-LoginCont").addClass("zoomIn").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function() {
+	        $(this).removeClass("zoomIn")
+	    })
+	});
+	
+
+    $(".tkw-main").on("click", ".cls-btn", function() {
+        $(this).parents(".tkw-window ").fadeOut()
+    })
+
+
 	$('.form-register').on('submit', function(e) {
 		e.preventDefault();
 		var form = $(this);

@@ -25,6 +25,7 @@ class HomeController extends AbstractFrontController
 
     public function search(Request $req)
     {
-        return Image::search($req->query());
+        $images = Image::search($req->query());
+        return view('front.search', compact('images'));
     }
 }

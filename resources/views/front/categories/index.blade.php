@@ -1,7 +1,5 @@
 <?php
-use App\Helpers\General;
-
-$categories = General::getCategoryTree();
+    use App\Helpers\General;
 ?>
 @extends('layouts.default')
 @section('title', 'category')

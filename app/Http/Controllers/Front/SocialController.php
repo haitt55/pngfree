@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Socialite;
 

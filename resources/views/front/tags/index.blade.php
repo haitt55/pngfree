@@ -1,7 +1,5 @@
 <?php
-use App\Helpers\General;
-
-$categories = General::getCategoryTree();
+    use App\Helpers\General;
 ?>
 @extends('layouts.default')
 @section('title', 'category')
@@ -14,7 +12,7 @@ $categories = General::getCategoryTree();
 <h1 style="display:none;">{{ number_format($total) }} Free Graphic Design PNG, Vectors and PSD Files</h1>
 <div id="v2-subpageBan" class="subpageBan">
     <div class="w1520 pr">
-        <h3 class="title-main">{{ number_format($total) }} Free {{ ucwords(strtolower($category->name)) }}</h3>
+        <h3 class="title-main">{{ number_format($total) }} Free {{ ucwords(strtolower($tag->name)) }}</h3>
         <!-- search -->
         <div class="serach-box">
             <div class="sb-items search-type">
@@ -25,22 +23,7 @@ $categories = General::getCategoryTree();
                 <a href="javascript:;" class="" data-type='6'>POWERPOINT </a>
                 <a href="javascript:;" data-type='3'>ICONS</a>
             </div>
-
-            <form class="sb-form clearfix">
-                <input type="text" placeholder="Search Graphic Design"
-                       class="sb-input fl-l comment-search-keyword-box-input">
-                <a href="javascript:;" class="sb-btn fl-l search-box-input-index" data-ga="1">
-                    <i></i>
-                </a>
-                <!--首页搜索推荐下拉框-->
-                <div class="search-dropdown-wrap comment-search-dropdown-wrap" id="search-dropdown-wrap">
-                    <div class="search-dropdown">
-
-                    </div>
-                </div>
-                <!--首页搜索推荐下拉框 end-->
-            </form>
-
+            @include('front._partials.search_form')
         </div>
         <p class="bac-p">Download free graphic design PNG images, vectors and PSD files for your design inspiration. </p>
         <p class="bac-p"> PNG, AI, EPS, and PSD format are all available.</p>
@@ -53,27 +36,26 @@ $categories = General::getCategoryTree();
         <!-- mainbav  -->
         <div class="subpage-Mainbav clearfix templates-ban element-cate-click">
             <div class="SM-lists fl-l">
-                <a href="{{ $categoriesTags['all_top']->slug }}.html" @if($categoriesTags['all_top']->slug == $category->slug) class="on" @endif>All</a>
-                @foreach($categoriesTags['top'] as $val)
-                <a href="{{ $val->slug }}.html" @if($val->slug == $category->slug) class="on" @endif>{{ $val->name }}</a>
+                @foreach($categories as $val)
+                <a href="{{ $val['slug'] }}/{{ $tag->slug }}.html" @if($category && $val['slug'] == $category->slug) class="on" @endif>{{ $val['name'] }}</a>
                 @endforeach
             </div>
-            <div class="SM-lists fl-l">
-                <!--                元素商用-->
+            {{--<div class="SM-lists fl-l">--}}
+                {{--<!--                元素商用-->--}}
 
-                <a href="{{ $categoriesTags['all_top']->slug }}.html" @if($categoriesTags['all_top']->slug == $category->slug) class="on" @endif>All</a>
-                @foreach($categoriesTags['mid'] as $val)
-                <a href="{{ $val->slug }}.html" @if($val->slug == $category->slug) class="on" @endif>{{ $val->name }}</a>
-                @endforeach
-            </div>
-            <div class="SM-lists fl-l">
-            </div>
+                {{--<a href="{{ $categoriesTags['all_top']->slug }}.html" @if($categoriesTags['all_top']->slug == $category->slug) class="on" @endif>All</a>--}}
+                {{--@foreach($categoriesTags['mid'] as $val)--}}
+                {{--<a href="{{ $val->slug }}.html" @if($val->slug == $category->slug) class="on" @endif>{{ $val->name }}</a>--}}
+                {{--@endforeach--}}
+            {{--</div>--}}
+            {{--<div class="SM-lists fl-l">--}}
+            {{--</div>--}}
 
             <div class="SM-lists fl-l">
 
-                <a href="{{ $category->slug }}.html" @if(!$sort) class="on" @endif>Popular</a>
-                <a rel="nofollow" href="{{ $category->slug }}.html?sort=new" @if($sort == 'new') class="on" @endif>New</a>
-                <a rel="nofollow" href="{{ $category->slug }}.html?sort=most" @if($sort == 'most') class="on" @endif>Most Download</a>
+                <a href="so/{{ $tag->slug }}.html" @if(!$sort) class="on" @endif>Popular</a>
+                <a rel="nofollow" href="so/{{ $tag->slug }}.html?sort=new" @if($sort == 'new') class="on" @endif>New</a>
+                <a rel="nofollow" href="so/{{ $tag->slug }}.html?sort=most" @if($sort == 'most') class="on" @endif>Most Download</a>
 
             </div>
 
@@ -174,8 +156,8 @@ $categories = General::getCategoryTree();
             }
         }
     </script>
-    <script src="v2/js/v2/base-newf3db.js?v=2018081119"></script>
-    <script src="v2/js/v2/indexf3db.js?v=2018081119"></script><!--结束js脚本模块-->
+    <script src="{{ url('v2/js/v2/base-newf3db.js') }}?v=2018081119"></script>
+    <script src="{{ url('v2/js/v2/indexf3db.js') }}?v=2018081119"></script><!--结束js脚本模块-->
     <script>
         addLoadEvent(function () {
             var g_bda = new Date();

@@ -1,8 +1,4 @@
-<?php
-/**
-Layout for guest, content full box - login+register
-*/
-?><!doctype html>
+<!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
         @include('layouts.includes.head_css')

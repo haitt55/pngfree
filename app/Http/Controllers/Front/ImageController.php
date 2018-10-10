@@ -19,7 +19,7 @@ class ImageController extends Controller
     {
         $image      = Image::findBySlug($imageSlug);
         $moreImages = Image::getAllImagesByCategory($image->category_id);
-        return view('images.detail')->with(array(
+        return view('front.images.detail')->with(array(
             'image'      => $image,
             'moreImages' => $moreImages,
         ));

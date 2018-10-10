@@ -48,7 +48,7 @@
 	                        <ul class="dropdown-menu animated fadeInUp">
 	                          <li><a href="profile.html">Profile</a></li>
 	                          <li><a href="javascript:{}" onclick="document.getElementById('logout-form').submit(); return false;">Logout</a></li>
-	                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+	                          <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
 	                        </ul>

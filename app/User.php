@@ -101,6 +101,27 @@ class User extends Authenticatable
     }
 
     public static function changeStatus($userID, $payment_id){
+        if (!$payment_id) {
+            DB::table('download_times')
+                ->where('download_times.user_id', $userID)
+                ->update(['download_number' => 3]);
+            return self::where('id', $userID)
+                ->update([
+                    'payment_id' => null,
+                    'payment_at' =>  null,
+                    'payment_expire' => null,
+                ]);
+        }
+        if (in_array($payment_id, array(User::TYPE_1_1, User::TYPE_1_6, User::TYPE_1_12))) {
+            DB::table('download_times')
+                ->where('download_times.user_id', $userID)
+                ->update(['download_number' => User::TYPE_1]);
+        }
+        if (in_array($payment_id, array(User::TYPE_2_1, User::TYPE_2_6, User::TYPE_2_12))) {
+            DB::table('download_times')
+                ->where('download_times.user_id', $userID)
+                ->update(['download_number' => User::TYPE_2]);
+        }
         return self::where('id', $userID)
             ->update([
                 'payment_id' => $payment_id,

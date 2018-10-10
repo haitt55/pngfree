@@ -7,6 +7,14 @@ use App\Category;
 
 class Image extends BaseModel
 {
+    const TYPE_PNG = 1;
+    const TYPE_PSD = 2;
+    const TYPE_AI = 3;
+    const TYPE_JPG = 4;
+    const TYPE_EPS = 5;
+    const TYPE_PPT = 6;
+    const TYPE_SVG = 7;
+
     protected $table = 'images';
 
     protected $fillable = [

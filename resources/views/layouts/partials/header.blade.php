@@ -144,7 +144,7 @@ $categories = General::getCategoryTree();
 <div id="scroll-Nav" class="v2-header scroll-Nav">
     <div class="w1520 clearfix">
         <!-- logo -->
-        <a href="{{ route('home') }}" class="Newlogo fl-l"></a>
+        {{--<a href="{{ route('home') }}" class="Newlogo fl-l"></a>--}}
 
         <!--scroll search -->
         <form class="sb-form clearfix fl-l search-box-outer">
@@ -185,8 +185,13 @@ $categories = General::getCategoryTree();
         <div class="Top-infor fl-r clearfix">
 
             <div class="Beforelogin-boxs fl-l">
-                <a href="javascript:;" class="btn-logo base-public-login-button">Login</a>
-                <a href="javascript:;" class="btn-register base-public-register-button">Register</a>
+                @if($userLoggedIn)
+                    <span style="color: #FFF">{{ $userLoggedIn->name }}</span>
+                    <a href="/logout" class="btn-logo">Logout</a>
+                @else
+                    <a href="javascript:;" class="btn-logo base-public-login-button">Login</a>
+                    <a href="javascript:;" class="btn-register base-public-register-button">Register</a>
+                @endif
             </div>
 
         </div>

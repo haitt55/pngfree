@@ -7,6 +7,7 @@ use App\Http\Requests\UserLoginRequest;
 use App\User;
 use Hash;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends AbstractFrontController
 {
@@ -31,6 +32,10 @@ class AuthController extends AbstractFrontController
             'email'    => $req->email,
             'password' => Hash::make($req->password),
         ])));
+        DB::table('download_times')->insert([
+            'user_id' => $user->id,
+            'download_number' => 3
+        ]);
         auth()->guard()->login($user);
         return response()->json(['success' => true]);
     }

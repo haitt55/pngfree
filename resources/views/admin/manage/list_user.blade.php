@@ -60,7 +60,7 @@ use Illuminate\Support\Facades\Session;
 							        <td>
 							        	<div style="width: 50%; float: left;">
 							        		<select class="form-control change_status" user_id = "{{$user->id}}" url_send = "{{ route('admin.changeStatus') }}">
-											 	<option>Change status</option>
+											 	<option value="">Change status</option>
 											 	<option disabled>Loai 1(30DL/ngay)</option>
 											 	@foreach($allStatus[User::TYPE_1] as $key=>$val)
 											 		<option value="{{$key}}" @if($user->payment_id == $key) selected @endif>&nbsp&nbsp&nbsp{{$val}}</option>

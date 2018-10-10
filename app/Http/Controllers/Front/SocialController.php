@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\User;
 use Illuminate\Http\Request;
 use Socialite;
+use Illuminate\Support\Facades\DB;
 
 class SocialController extends AbstractFrontController
 {
@@ -50,6 +51,10 @@ class SocialController extends AbstractFrontController
                     break;
             }
             $userData->fill($data)->save();
+            DB::table('download_times')->insert([
+                'user_id' => $userData->id,
+                'download_number' => 3
+            ]);
         }
         auth()->login($userData, $remember = true);
         return redirect()->route('home');

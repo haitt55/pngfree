@@ -29,4 +29,13 @@ class HomeController extends Controller
         ));
     }
 
+    public function loginCheck()
+    {
+        if (Auth::guard('web')->user()) {
+            return response()->json(array('login' => 1));
+        }
+
+        return response()->json(array('login' => 0));
+    }
+
 }

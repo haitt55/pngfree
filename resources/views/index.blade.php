@@ -1,5 +1,6 @@
 <?php
 use App\Helpers\General;
+use App\Image;
 
 $categories = General::getCategoryTree();
 ?>
@@ -175,12 +176,12 @@ $categories = General::getCategoryTree();
                             <i></i>
                         </a>
                         <a target="_blank" data-ga="{{ $images['id'] }}_PNG" rel="nofollow"
-                           href="{{ route('home') }}?id=MzYwMjc2NQ==&amp;type=1"
-                           class="hs-downPng down-jpg-click element-click">
+                           href="{{ route('image.download') }}?id={{ $images['id'] }}&amp;type={{Image::TYPE_PNG}}"
+                           class="hs-downPng element-down-click">
                             <i></i>PNG</a>
                         <a target="_blank" data-ga="{{ $images['id'] }}_PSD" rel="nofollow"
-                           href="{{ route('home') }}?id=MzYwMjc2NQ==&amp;type=2"
-                           class="hs-downEps down-rar-click element-click">
+                           href="{{ route('image.download') }}?id={{ $images['id'] }}&amp;type={{Image::TYPE_PSD}}"
+                           class="hs-downEps element-down-click">
                             <i></i>PSD</a>
                     </div>
                     <!-- png -->

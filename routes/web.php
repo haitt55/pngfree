@@ -31,6 +31,7 @@ Route::post('admin/changeStatus','AdminController@changeStatus')->name('admin.ch
 Route::post('admin/deleteUser','AdminController@deleteUser')->name('admin.deleteUser');
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin','Admin\LoginController@login');
+Route::post('admin/logout','Admin\LoginController@logout')->name('admin.logout');
 Route::post('admin-password/email','Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
 Route::get('admin-password/reset','Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
 Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
@@ -41,9 +42,11 @@ Route::group([
     'middleware' => 'front_auth',
 ], function () {
     Route::get('logout', 'Front\AuthController@logout')->name('logout');
+    Route::get('/login/check', 'HomeController@loginCheck')->name('login.check');
     Route::get('/', 'HomeController@index')->name('home');
     Route::view('/about.html', 'pages.about');
     Route::view('/terms-of-service.html', 'pages.terms_of_service');
+    Route::get('/element/download', 'ImageController@download')->name('image.download');
     Route::get('/{categorySlug}.html', 'CategoryController@index')->name('category.index');
     Route::get('/so/{tagSlug}.html', 'TagController@index')->name('tag.index');
     Route::get('/{categoryPrefix}/{imageSlug}', 'ImageController@detail')->where('imageSlug', '^.{1,255}$')->name('image.detail');

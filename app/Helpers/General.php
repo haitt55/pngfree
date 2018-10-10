@@ -2,9 +2,9 @@
 
 namespace App\Helpers;
 
-use App\Category;
+use App\Models\Category;
+use App\Models\Image;
 use DB;
-use App\Image;
 
 class General
 {
@@ -18,17 +18,18 @@ class General
      *
      * @return mixed
      */
-    public static function getCategoryTree() {
+    public static function getCategoryTree()
+    {
         $categoriesLv1 = DB::table('categories')->where('level', self::LEVEL1)->get()->toArray();
         $categoriesLv2 = DB::table('categories')->where('level', self::LEVEL2)->get()->toArray();
         $categoriesLv3 = DB::table('categories')->where('level', self::LEVEL3)->get()->toArray();
-        foreach($categoriesLv1 as $key => $value) {
+        foreach ($categoriesLv1 as $key => $value) {
             $categoriesLv1[$key] = (array) $value;
         }
-        foreach($categoriesLv2 as $key => $value) {
+        foreach ($categoriesLv2 as $key => $value) {
             $categoriesLv2[$key] = (array) $value;
         }
-        foreach($categoriesLv3 as $key => $value) {
+        foreach ($categoriesLv3 as $key => $value) {
             $categoriesLv3[$key] = (array) $value;
         }
 
@@ -94,7 +95,8 @@ class General
         return 0;
     }
 
-    public static function getDivClassIndex($categoryName) {
+    public static function getDivClassIndex($categoryName)
+    {
         $common = '-photobox';
         if (strpos(strtolower($categoryName), 'graphic') !== false) {
             return 'gd' . $common;
@@ -114,7 +116,8 @@ class General
         return '';
     }
 
-    public static function getUlClassIndex($categoryName) {
+    public static function getUlClassIndex($categoryName)
+    {
         $common = '-photobox';
         if (strpos(strtolower($categoryName), 'graphic') !== false) {
             return 'gd' . $common;
@@ -134,7 +137,8 @@ class General
         return '';
     }
 
-    public static function getPicBoxClass($categoryName) {
+    public static function getPicBoxClass($categoryName)
+    {
         if (strpos(strtolower($categoryName), 'graphic') !== false) {
             return 'mb-picbox';
         } elseif (strpos(strtolower($categoryName), 'template') !== false) {
@@ -153,11 +157,13 @@ class General
         return '';
     }
 
-    public static function toCamelCase() {
+    public static function toCamelCase()
+    {
 
     }
 
-    public static function countAllImage() {
+    public static function countAllImage()
+    {
         $count = Image::all()->count();
 
         return $count;

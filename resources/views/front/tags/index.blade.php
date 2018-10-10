@@ -1,7 +1,5 @@
 <?php
-use App\Helpers\General;
-
-$categories = General::getCategoryTree();
+    use App\Helpers\General;
 ?>
 @extends('layouts.default')
 @section('title', 'category')
@@ -25,22 +23,7 @@ $categories = General::getCategoryTree();
                 <a href="javascript:;" class="" data-type='6'>POWERPOINT </a>
                 <a href="javascript:;" data-type='3'>ICONS</a>
             </div>
-
-            <form class="sb-form clearfix">
-                <input type="text" placeholder="Search Graphic Design"
-                       class="sb-input fl-l comment-search-keyword-box-input">
-                <a href="javascript:;" class="sb-btn fl-l search-box-input-index" data-ga="1">
-                    <i></i>
-                </a>
-                <!--首页搜索推荐下拉框-->
-                <div class="search-dropdown-wrap comment-search-dropdown-wrap" id="search-dropdown-wrap">
-                    <div class="search-dropdown">
-
-                    </div>
-                </div>
-                <!--首页搜索推荐下拉框 end-->
-            </form>
-
+            @include('front._partials.search_form')
         </div>
         <p class="bac-p">Download free graphic design PNG images, vectors and PSD files for your design inspiration. </p>
         <p class="bac-p"> PNG, AI, EPS, and PSD format are all available.</p>

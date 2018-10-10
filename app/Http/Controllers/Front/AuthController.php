@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Requests\UserRegisterRequest;
 use App\Http\Requests\UserLoginRequest;
-use App\User;
+use App\Http\Requests\UserRegisterRequest;
+use App\Models\User;
 use Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\DB;

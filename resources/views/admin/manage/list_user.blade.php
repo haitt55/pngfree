@@ -1,5 +1,5 @@
 <?php
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 ?>
 @extends('admin.manage.master')

@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Helpers\General;
-use App\Image;
+use App\Models\Image;
 
 class Category extends BaseModel
 {

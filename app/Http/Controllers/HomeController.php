@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Tag;
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Image;
+use App\Models\Image;
 use App\Helpers\General;
 
 class HomeController extends Controller

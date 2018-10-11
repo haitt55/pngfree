@@ -7,6 +7,7 @@ use App\Models\Category;
 <div id="v2-head" class="v2-header">
     <div class="w1520 clearfix">
         <!-- logo -->
+        <a href="{{ route('home') }}" class="Newlogo fl-l"></a>
         <!-- Topnav -->
         <ul class="fl-l Topnav">
             @foreach ($categories as $category1)
@@ -130,6 +131,7 @@ use App\Models\Category;
 <!-- v2  Scroll navigation -->
 <div id="scroll-Nav" class="v2-header scroll-Nav">
     <div class="w1520 clearfix">
+        <a href="{{ route('home') }}" class="Newlogo fl-l"></a>
         <!-- logo -->
         <!--scroll search -->
         <form class="sb-form clearfix fl-l search-box-outer">

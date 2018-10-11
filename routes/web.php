@@ -44,6 +44,7 @@ Route::group([
 ], function () {
     Route::get('logout', 'AuthController@logout')->name('logout');
     Route::get('/login/check', 'HomeController@loginCheck')->name('login.check');
+    Route::get('/canDownload/check', 'ImageController@checkCanDownload')->name('can.download.check');
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/element/download', 'ImageController@download')->name('image.download');
     Route::get('/search', 'HomeController@search')->name('search');

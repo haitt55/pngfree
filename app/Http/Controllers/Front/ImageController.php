@@ -46,9 +46,13 @@ class ImageController extends Controller
             $filename = $this->getFileName($request->get('id'), $request->get('type'));
             $extension = $this->getFileExtension($request->get('type'));
             // get file to download folder
-            file_put_contents("download/image.".$extension, fopen($filename, 'r'));
-            $tempImage = tempnam(sys_get_temp_dir(), "image.".$extension);
-            copy(public_path().'/download/image.'.$extension, $tempImage);
+            try {
+                file_put_contents("download/image.".$extension, fopen($filename, 'r'));
+                $tempImage = tempnam(sys_get_temp_dir(), "image.".$extension);
+                copy(public_path().'/download/image.'.$extension, $tempImage);
+            } catch(\Exception $e) {
+                abort(500);
+            }
 
             // update download number
             $downloadNumber = $downloadNumber - 1;

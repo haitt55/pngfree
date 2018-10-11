@@ -152,18 +152,11 @@ $categories = General::getCategoryTree();
                     <span class="commercial-use"></span>
                     <!-- hover -->
                     <div class="hover-show">
-                        <a href="javascript:;" data-id="{{ $images['id'] }}" data-type="1"
-                            class="hs-star  star-btn-click element-click" data-ga="{{ $images['id'] }}_Like">
-                        <i></i>
-                        </a>
-                        <a target="_blank" data-ga="{{ $images['id'] }}_PNG" rel="nofollow"
-                           href="{{ route('image.download') }}?id={{ $images['id'] }}&amp;type={{Image::TYPE_PNG}}"
-                           class="hs-downPng element-down-click">
-                            <i></i>PNG</a>
-                        <a target="_blank" data-ga="{{ $images['id'] }}_PSD" rel="nofollow"
-                           href="{{ route('image.download') }}?id={{ $images['id'] }}&amp;type={{Image::TYPE_PSD}}"
-                           class="hs-downEps element-down-click">
-                            <i></i>PSD</a>
+                        {{--<a href="javascript:;" data-id="{{ $images['id'] }}" data-type="1"--}}
+                            {{--class="hs-star  star-btn-click element-click" data-ga="{{ $images['id'] }}_Like">--}}
+                        {{--<i></i>--}}
+                        {{--</a>--}}
+                        @include('layouts.includes.download_button', array('image' => $images))
                     </div>
                     <!-- png -->
                     <div class="{{ General::getPicBoxClass($categoryImages['category']['name']) }}">
@@ -226,7 +219,7 @@ $categories = General::getCategoryTree();
                 <?php $image = $categoryImages['images'][$i]; ?>
                 <li>
                     <a target="_blank"
-                        href="free-powerpoint-template/{{ $image['slug'] }}"
+                        href="freepng/{{ $image['slug'] }}"
                         title="{{ $image['title'] }}"
                         data-ga="60152_ImgUrl" class="ppt-click">
                     <img class="lazy" src="../js2.pngtree.com/v2/images/lz.gif"
@@ -239,9 +232,7 @@ $categories = General::getCategoryTree();
                         <a href="javascript:;" class="fl-r btn-down">405</a>
                     </div>
                     <div class="hover-box tran">
-                        <a target="_blank" rel="nofollow" data-ga="{{ $image['id'] }}_Down" href="{{ route('home') }}?id=NjAxNTI="
-                            class="ppt-click btn-drown template-down-file down-rar-click ppt-down-file "
-                            data-id="{{ $image['id'] }}"></a>
+                        @include('layouts.includes.download_button', array('image' => $image))
                     </div>
                 </li>
                 @endif
@@ -273,19 +264,13 @@ $categories = General::getCategoryTree();
                 <li class="vertical">
                     <!-- hover -->
                     <div class="hover-show">
-                        <a href="javascript:;" class="back-click hs-star  star-btn-click" data-id="{{ $image['id'] }}"
-                            data-type="2" data-ga="{{ $image['id'] }}_Like">
-                        <i></i>
-                        </a>
-                        <a target="_blank" rel="nofollow" href="{{ route('home') }}?id=ODg5MTQz&amp;type=1"
-                            data-ga="ODg5MTQz_JPG" class="hs-downPng down-jpg-click ppt-click">
-                        <i></i>JPG</a>
+                        @include('layouts.includes.download_button', array('image' => $image))
                     </div>
                     <div class="bacPng-box">
                         <img data-original="{{ $image['thumb'] }}"
                             alt="{{ $image['title'] }}"
                             class="lazy">
-                        <a target="_blank" href="freebackground/{{ $image['slug'] }}"
+                        <a target="_blank" href="freepng/{{ $image['slug'] }}"
                             class="tran ppt-click" data-ga="ODg5MTQz_ImgUrl"></a>
                         <p class="text-overflow">{{ $image['title'] }}</p>
                     </div>
@@ -317,15 +302,12 @@ $categories = General::getCategoryTree();
                 <li>
                     <!-- hover -->
                     <div class="hover-show">
-                        <a href="javascript:;" data-ga="256_Like" class="icon-click hs-star icon-like-btn "
-                            data-type="1" data-id="{{ $image['id'] }}">
-                        <i></i>
-                        </a>
+                        @include('layouts.includes.download_button', array('image' => $image))
                     </div>
                     <div class="bacPng-box">
                         <img width="100%" data-original="{{ $image['thumb'] }}"
                             alt="{{ $image['title'] }}" class="lazy">
-                        <a rel="nofollow" target="_blank" href="free-icon-packs/{{ $image['slug'] }}"
+                        <a rel="nofollow" target="_blank" href="freepng/{{ $image['slug'] }}"
                             data-ga="{{ $image['id'] }}_ImgUrl" class="tran icon-click"></a>
                         <p class="text-overflow tran">{{ $image['title'] }}k</p>
                     </div>

@@ -5,7 +5,6 @@
             type:'GET',
             url:'/login/check',
             success:function(data){
-                console.log(e.delegateTarget.href);
                 if (data.login == 0) {
                     $("#base-register-window").show().find(".tkw-registerCont").addClass("zoomIn").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend");
                 } else {

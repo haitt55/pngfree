@@ -70,19 +70,7 @@
                         <li class="li-box ">
                             <!-- hover -->
                             <div class="hover-show">
-                                <a href="javascript:;" class="element-list-click hs-star star-btn-click "
-                                   data-ga="{{ $image->id }}_Like" data-id="{{ $image->id }}" data-type="1">
-                                    <i></i>
-                                </a>
-
-                                <a target="_blank" rel="nofollow" href="{{ route('home') }}?id=MjY4MzA=&amp;type=1" data-t="0"
-                                   data-ga="{{ $image->id }}_PNG" class="element-list-click hs-downPng  down-jpg-click ">
-                                    <i></i>PNG</a>
-
-                                <a target="_blank" rel="nofollow" data-ga="{{ $image->id }}_PSD"
-                                   href="{{ route('home') }}?id=MjY4MzA=&amp;type=2" data-t="0"
-                                   class="element-list-click down-jpg-click hs-downEps down-rar-click ">
-                                    <i></i>PSD</a>
+                                @include('layouts.includes.download_button', array('image' => $image))
 
                             </div>
                             <!-- png -->

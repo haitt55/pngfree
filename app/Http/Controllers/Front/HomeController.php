@@ -26,9 +26,11 @@ class HomeController extends AbstractFrontController
 
     public function search(Request $req)
     {
-        $categories = General::getCategoryTree();
         $images = Image::search($req->query());
-        return view('front.search', compact('images', 'categories'));
+        if ($categorySelectedId = $req->get('category')) {
+            $categorySelected = Category::selectRaw('id, name')->find($categorySelectedId);
+        }
+        return view('front.search', compact('images', 'categories', 'categorySelectedId', 'categorySelected'));
     }
 
     public function loginCheck()

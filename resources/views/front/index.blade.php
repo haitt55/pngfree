@@ -17,11 +17,6 @@ $categories = General::getCategoryTree();
         <h2 class="title-main">{{ number_format(General::countAllImage()) }} PNG Images For Free Download</h2>
         <!-- search -->
         <div class="serach-box">
-            <div class="sb-items search-type">
-                @foreach ($categories as $category)
-                <a href="javascript:;" class="@if($loop->first) on @endif" data-type='{{ $category['id'] }}'>{{ $category['name'] }}</a>
-                @endforeach
-            </div>
             @include('front._partials.search_form')
             <div class="popular-tags">
                 <span>Popular tags:</span>

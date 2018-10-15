@@ -101,4 +101,8 @@ class Category extends BaseModel
         return $categoriesTags;
     }
 
+    public static function getParentCategories($limit = 5)
+    {
+        return static::selectRaw("id, name")->whereLevel(static::LEVEL_ROOT)->limit($limit)->get();
+    }
 }

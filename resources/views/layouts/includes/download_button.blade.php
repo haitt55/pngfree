@@ -29,12 +29,12 @@ use App\Models\Image;
        class="hs-downEps element-down-click">
         <i></i>AI</a>
     @endif
-    @if($image && $image['ppt_link'])
+    @if($image && isset($image['ppt_link']))
     <a target="_blank" rel="nofollow" data-ga="{{ $image['id'] }}_Down" href="{{ route('image.download') }}?id={{ $image['id'] }}&amp;type={{Image::TYPE_PPT}}"
        class="ppt-click btn-drown template-down-file down-rar-click ppt-down-file element-down-click"
        data-id="{{ $image['id'] }}"></a>
     @endif
-    @if($image && $image['svg_link'])
+    @if($image && isset($image['svg_link']))
     <a target="_blank" data-ga="{{ $image['id'] }}_SVG" rel="nofollow" href="{{ route('image.download') }}?id={{ $image['id'] }}&amp;type={{Image::TYPE_SVG}}"
        class="hs-downEps element-down-click">
         <i></i>SVG</a>

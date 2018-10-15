@@ -1,22 +1,24 @@
 var Pngtree = {};
 $(function() {
-    function a(e, t) {
-        switch (t) {
-            case 1:
-                e.attr("placeholder", "Search Graphic Design");
-                break;
-            case 2:
-                e.attr("placeholder", "Search Backgrounds");
-                break;
-            case 5:
-                e.attr("placeholder", "Search Templates");
-                break;
-            case 3:
-                e.attr("placeholder", "Search Icons");
-                break;
-            case 6:
-                e.attr("placeholder", "Search Powerpoint")
-        }
+    function a(e, t, c, cp) {
+        e.attr('placeholder', 'Search ' + c.charAt(0).toUpperCase() + c.slice(1).toLowerCase());
+        cp.val(t);
+        // switch (t) {
+        //     case 1:
+        //         e.attr("placeholder", "Search Graphic Design");
+        //         break;
+        //     case 2:
+        //         e.attr("placeholder", "Search Backgrounds");
+        //         break;
+        //     case 5:
+        //         e.attr("placeholder", "Search Templates");
+        //         break;
+        //     case 3:
+        //         e.attr("placeholder", "Search Icons");
+        //         break;
+        //     case 6:
+        //         e.attr("placeholder", "Search Powerpoint")
+        // }
     }
     Pngtree.publicPopup = function(e, t, a) {
         $(".qbweb-win." + e).fadeIn("1500", function() {
@@ -227,8 +229,10 @@ $(function() {
     }), $(".sb-items").on("click", "a", function() {
         $(this).addClass("on").siblings("a").removeClass("on");
         var e = $(this).data("type"),
-            t = $(this).parents(".serach-box").find(".sb-form input");
-        t.data("lg") ? t.attr("placeholder", t.data("lg") + " " + $(this).text()) : a(t, e)
+            c = $(this).text(),
+            t = $(this).parents(".serach-box").find(".sb-form input[name=keyword]");
+            pc = $(this).parents(".serach-box").find(".sb-form input[name=category]");
+        t.data("lg") ? t.attr("placeholder", t.data("lg") + " " + $(this).text()) : a(t, e, c, pc)
     }), $(".detailsearch-select ul").on("click", "li", function() {
         $(this).addClass("on").siblings("li").removeClass("on");
         var e = $(this).data("type");

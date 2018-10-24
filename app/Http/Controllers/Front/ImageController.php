@@ -43,23 +43,29 @@ class ImageController extends Controller
             $downloadNumber = $downloadTimes->download_number;
             $canDownload = 1;
             // download image
-            $filename = $this->getFileName($request->get('id'), $request->get('type'));
+            $fileId = $this->getFileName($request->get('id'), $request->get('type'));
             $extension = $this->getFileExtension($request->get('type'));
             // get file to download folder
-            try {
-                file_put_contents("download/image.".$extension, fopen($filename, 'r'));
-                $tempImage = tempnam(sys_get_temp_dir(), "image.".$extension);
-                copy(public_path().'/download/image.'.$extension, $tempImage);
-            } catch(\Exception $e) {
-                abort(500);
-            }
 
             // update download number
             $downloadNumber = $downloadNumber - 1;
             DB::table('download_times')->where('user_id', auth()->user()->id)->update(['download_number' => $downloadNumber]);
 
             // download file
-            return response()->download($tempImage, 'download.'.$extension);
+            putenv('GOOGLE_APPLICATION_CREDENTIALS='.base_path('projectyoutubeplaylist-1322-82b50f954e54.json'));
+            $client = new \Google_Client([
+                'auth' => 'google_auth'
+            ]);
+            $client->addScope(\Google_Service_Drive::DRIVE);
+            $client->useApplicationDefaultCredentials();
+            $service = new \Google_Service_Drive($client);
+            //$fileId = '1onA7RNA-nGKzvH7Ag4E3X0WXKEir9-P6';
+            $response = $service->files->get($fileId, array('alt' => 'media'));
+            //if ($extension == 'png') {}
+            //header("Content-type: image/jpeg");
+            header("Cache-Control: no-store, no-cache");
+            header('Content-Disposition: attachment; filename="avatar.'.$extension.'"');
+            echo $response->getBody()->getContents();
         } else {
             return view('images.download');
         }

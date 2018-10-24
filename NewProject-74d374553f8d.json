@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "daring-studio-132223",
+  "private_key_id": "74d374553f8d929b7bfde14612373a8e5f6ec4d6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDhMbGNf5MIZsjX\nVokWQDFODiT4pJgvtLXhRn7BOs6MVHoLQNTvXDFgb2cfxJriulxFUL6XW+KftHXq\n+ppqN/gYQHEPzINaJpX18BZTvRiLjh0JxnrGz86wQIg5sdtMBNteHbjEy4HegOsE\n9ed6ANVBkyywDUop8O+7aqzXCwuwcsKxnaDTHYCJjsuuRbQGIEEP3pQ4vfXH+aQF\nK/UYNZnqpyyd/gGpGACmH/TCM/ks/fcw+ZPQjOYgNpTRWKM4ZbPsvU9t3qgXzwNn\nETMKlLYkRBcHHK2LFEra4h9+0XE/0mHWcBDm5bRGOQIWypbSNHQCL/st+5+HGB3J\nTSmX4Ro/AgMBAAECggEAJbjPRyaRmJyvE/M473M9TxfrdYMMwyEAPoYygWe6ZaNY\n9j2b7aSB2OeQXK/wSf5xqmLGKlCH+7yc7AmiiBxsAJP63GyjrBw+jn3zH3/Tdr0N\nfC+1LUxuEPQeXZu/YlKF9JQB+WUlkgICXEhcyAEPt/ZRTARN4gyr+7b40OTWxm2C\nPoptxZbANMDO/vZyjtVDxq8mHrUa6igpIa37ujcx8J5R1MC0BAdJaMMKjznrIQ+I\nr5WT6ZFWYyGJx1lPzkaWCM9jWKc9T3If7cg2/S5Xz10Rdt7ehk4cqbDn+CzH0qxI\nFBHFbSukGD44hEHUy1wNMmw6jFRGroUNIBLNnnjV4QKBgQD+zFBZxd3PQ7YUF+bO\nKjPjGGEJwCQ0zN1rjzVp62rV1rx+oBNL2F8FToLGVzQProLKJebaboW8GODHC/nm\nPBgCp/yYB18MgQH77EagmdkvYS6Bz7rCe2tw07nbm/UZM0UNGzQY9QhGVCpZgsAr\n6Vek5fO6RunCRnofEyoyF2uyKQKBgQDiQaF/81okM8YRR2ye8DcdX5EEY1n1+s4p\n9bopCt07Mo1kRxSe2hz9BSVtyzRHcsJmMj5X1amzgjrfPWSKiDXmQ6Wdm7MZCAGb\nC/ltDNkSf5/M/2iCJK3F1oXsdcFXFRWjcwp/IOYHM/9AAMtKd8pfrebJ6gkSlqv+\nr2waf2wGJwKBgGPl+U7pTCj6NEY2hNCqLUPJiCpJgiiNdfa45ElN+soych73Zflj\nsQWknZNkF05arn7RU2yqzpZL7r07zdPeFc/cyyVUJokBf6SlI5/OEiAIazKMHn4n\n450N9h3LTNJ/joAv/UIXuBHS5/PGVtAgobNOUTvkl7wK49CRNAcFtbzZAoGAQNeK\nTz8Q0Fs+ImmTyaESSoq+5sEKYSJ1vzS7G1QPvw1n1BtC35umvySga2zXGLrc16kC\nkO2c6uMhuCTCEamjuNAeQKMEmuHeg+7Ultodw91rkLaJ3vJgEti+HNxKgoh6YRNx\nKKnnAp12Q4N2v2rBRtZx0+AMpZUkyaLAmn92F/UCgYAU+LkAghhWJ42w/j4Ixj6E\nfqMS5EXI/i4/frWyUhbhE7C3DyNizg/eliRodY2TxgUYTirmkWkC9N6CyQhKKLMO\nDaNx9tf+86cy8KC9uChav4gK2ABNLUkU4eTG7zI0DcKxNJ00wTiChiCvmJU5MgIa\nCDNFhq1HUW27YqId+kbQTA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "new-account-service@daring-studio-132223.iam.gserviceaccount.com",
+  "client_id": "112821197980088689184",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/new-account-service%40daring-studio-132223.iam.gserviceaccount.com"
+}

@@ -46,7 +46,7 @@ Route::group([
     Route::get('/login/check', 'HomeController@loginCheck')->name('login.check');
     Route::get('/canDownload/check', 'ImageController@checkCanDownload')->name('can.download.check');
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/element/download', 'ImageController@download')->name('image.download');
+    Route::any('/element/download', 'ImageController@download')->name('image.download');
     Route::get('/search', 'HomeController@search')->name('search');
     Route::view('/about.html', 'front.about');
     Route::view('/terms-of-service.html', 'front.terms_of_service');

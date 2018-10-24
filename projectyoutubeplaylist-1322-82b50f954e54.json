@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "projectyoutubeplaylist-1322",
+  "private_key_id": "82b50f954e542d52d3c2cfc6e1c092d05e86b42a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCiNWEvqmY76nDB\nfsWHZcyyCLImbXQox/otudVxX8NLNrnD7G3Oo9rpoWVMEaXnE+Ef9cYldQnxlEer\nZb3mgGXeZzK4BJRxGV2dlHm5KprNnaujgyFoip8I7zHawfwIcU0+amYYBSpae9OU\nFsswlp2JL0aB/zoH9vL8K/OX3xj+BvbontBHJLjkf6ffBnu1kfiCSu+44hxU1onc\nN0qemWrWSq6s+U4gGGfL5KViu7EVjwbwYhaO9PYgCOj66efRvBjZ3hZoZUTPwbfm\nLib3Jyef8Nagd5IrLAZXquo8ePhE3ybxwY6eBD3lDhyfbnwdK15JJoLROCfdW06t\ny0WCItARAgMBAAECggEAGnXlut5WW2Yfla5Qml6UuTgqQ5LYVOy7rCjj9ODVHVhk\njl2WU2lZr9dNtyPWh0RawEQaBN3mTNvOTdtE0qyrBtBD2aPu89IvpMyQh2W3/LHA\noDr8a1mC9En8vShRglkP644fcGyrSjkSkdZJYs2MY6bBdDmxJZUhxy7Y8l3eQwCX\nknZn6QmEjLB532tVPwX04RWXdX22kJ40kf4ucQcoXppm94ShMqHvbiG6HgQ80jX7\n6D5M36ZhiyCqFq37OhKTvCNPTi5RnqWAH3Gqg30Ep1VpdTCyGvF7ZB5VelkFtdsY\n1DDa2lwOaAxTBYGFk3g2DwE4v3ITLwbVawPW30edZwKBgQDYWL5l/LiuYeqrCGh9\nnCZ1AAZE5NPJdc8+UOMZxhmp876886VSefoI4YypZFB9fH/IfK5K9zL5AT9HvBhQ\nKAgnDTQ/i4Pw9302bp0SVM5LW6mkbB/hbSkUMf5edEl7ej8kcEcVZ/BKF29PNU77\nQJGWG+fbqtw/jIeBD5Lre4PTrwKBgQC/8GgNCxhhaYe2VSVDGz0uV0EfTnRa7tie\nzYhn9LBUccJ5mhzKdkioTrl4MdBVE0V2WAgzhL8pmnBATP82GUE/vubLaLNO/hxo\n/OPFMMF1xDkAU7c9JAvWdJsUS9vyhQsWNdFCgpEbPkumLO7ChGXMjbs9l81gE/T0\nExXN/P/IPwKBgHB1uQtk0k97gLPFXCOnTupUx+16EYlQnxkijNqx+lc45/ZqpI55\n73o8XJUVGy4P0JDUFvnLBAkiF9XfNbg9BvfdykIZ8M0KqWDpIOcNhGrxy/43Yl8Z\nElh4IGTTB/uSsU3su1aqP+MTyX2gFV1P1B32hZDPgUvbbfitss6L1xvrAoGBAJuA\nwkwO+SmyvejTAuVjZCXvOyuJ/GrPp2DBVAolC9bec5jhawH84tC5NzpR4V+LxXMj\nz0EuA1JJdTgjKYFC5MIogAO8R8lvxsSoXkCcR6CJ4USKjqJSWeTdg+blrsTFVT4h\nS/B+p+FSjyeKr8WYToFzMoesPQ/iG0rDS58fonsxAoGABkGCN9wpXiu1nQvxxZCt\nriY7LpcbN/j8+p9SmMvTxj5X+oJVPVU+hayYlKyq3XybpFVpcPFEszgAcYkNgf2y\nsv4Ih7nfuJ+LGl4MTxRCmsEeyocdefWUg7UKgogGOxK8dGNx6w3np6jG1gC+JW/O\nZc13QLwXIqoxkDq0mTpYqQM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "test-download-image@projectyoutubeplaylist-1322.iam.gserviceaccount.com",
+  "client_id": "111787892053709445208",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/test-download-image%40projectyoutubeplaylist-1322.iam.gserviceaccount.com"
+}

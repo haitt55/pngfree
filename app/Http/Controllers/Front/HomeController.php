@@ -13,6 +13,7 @@ class HomeController extends AbstractFrontController
 {
 
     protected $categories;
+    protected $parentCategories;
 
     public function index()
     {

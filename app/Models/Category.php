@@ -55,7 +55,7 @@ class Category extends BaseModel
     public static function getAllCategoryChildId($categoryId, $level = 0) {
         $childIds = self::where('parent_id', $categoryId)->pluck('id')->toArray();
         $arrAllChildId = $childIds;
-        if ($childIds && $level == 0) {
+        if ($childIds && $level === 0) {
             $childIdOfChild = self::whereIn('parent_id', $childIds)->pluck('id')->toArray();
             if ($childIdOfChild) {
                 $arrAllChildId = array_merge($childIds, $childIdOfChild);

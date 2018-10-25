@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Helpers\General;
 use App\Models\Category;
-use App\Models\Tag;
 use App\Models\Image;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,11 +26,12 @@ class HomeController extends AbstractFrontController
 
     public function search(Request $req)
     {
-        $images = Image::search($req->query());
+        $images  = Image::search($req->query());
+        $keyword = $req->keyword;
         if ($categorySelectedId = $req->get('category')) {
             $categorySelected = Category::selectRaw('id, name')->find($categorySelectedId);
         }
-        return view('front.search', compact('images', 'categories', 'categorySelectedId', 'categorySelected'));
+        return view('front.search', compact('images', 'categories', 'categorySelectedId', 'categorySelected', 'keyword'));
     }
 
     public function loginCheck()

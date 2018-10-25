@@ -85,7 +85,7 @@ class Image extends BaseModel
     {
         $query = static::selectRaw($select);
         if (isset($params['category']) && $params['category']) {
-            $query = $query->whereCategoryId($params['category']);
+            $query = $query->whereIn('category_id', array_merge(Category::getAllCategoryChildId($params['category']), [$params['category']]));
         }
         if (isset($params['keyword']) && $params['keyword']) {
             $query = $query->findRegex($params['keyword']);

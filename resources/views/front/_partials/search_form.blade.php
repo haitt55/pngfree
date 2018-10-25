@@ -4,7 +4,7 @@
     @endforeach
 </div>
 <form class="sb-form clearfix" method="GET" action="{{ route('search') }}" id="search-form">
-    <input class="sb-input fl-l comment-search-keyword-box-input" placeholder="Search {{ isset($categorySelected) ? ucfirst(strtolower($categorySelected->name)) : 'Graphic design' }}" type="text" name="keyword" />
+    <input class="sb-input fl-l comment-search-keyword-box-input" placeholder="Search {{ isset($categorySelected) ? ucfirst(strtolower($categorySelected->name)) : 'Graphic design' }}" type="text" name="keyword" value="{{ isset($keyword) ? $keyword : '' }}" />
     <input type="hidden" name="category" value="{{ isset($queryStrings['category']) ? $queryStrings['category'] : (isset($parentCategories[0]) ? $parentCategories[0]->id : '') }}">
     <a class="sb-btn fl-l search-box-input-index" href="javascript:" onclick="document.getElementById('search-form').submit()">
         <i></i>

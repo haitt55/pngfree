@@ -45,7 +45,7 @@ class ImageController extends Controller
             $downloadNumber = $downloadTimes->download_number;
             $canDownload = 1;
             // download image
-            $fileId = $this->getFileName($request->get('id'), $request->get('type'));
+            list($fileId, $fileName) = $this->getFileName($request->get('id'), $request->get('type'));
             $extension = $this->getFileExtension($request->get('type'));
             // get file to download folder
 
@@ -66,7 +66,7 @@ class ImageController extends Controller
             //if ($extension == 'png') {}
             //header("Content-type: image/jpeg");
             header("Cache-Control: no-store, no-cache");
-            header('Content-Disposition: attachment; filename="avatar.'.$extension.'"');
+            header('Content-Disposition: attachment; filename="'.$fileName.'.'.$extension.'"');
             echo $response->getBody()->getContents();
         } else {
             return view('images.download');
@@ -102,7 +102,7 @@ class ImageController extends Controller
                 break;
         }
         $image = Image::find($id);
-        return $image->$linkField;
+        return array($image->$linkField, $image->slug);
     }
 
     public function getFileExtension($type)

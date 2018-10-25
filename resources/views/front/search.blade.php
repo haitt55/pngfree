@@ -70,6 +70,7 @@
 
                                 <img data-original="{{ $image->thumb }}"
                                      alt="{{ $image->title }}" class="lazy" style=""
+                                     src="{{ $image->thumb }}"
                                      height="260">
                                 <a target="_blank" title="{{ $image->title }}" href="freepng/{{ $image->slug }}"
                                    data-ga="26830_ImgUrl" class="tran element-list-click">

@@ -157,7 +157,7 @@ $categories = General::getCategoryTree();
                     <div class="{{ General::getPicBoxClass($categoryImages['category']['name']) }}">
                         <img data-original="{{ $images['thumb'] }}"
                             alt="{{ $images['description'] }}"
-                            class="lazy">
+                            class="lazy" src="{{ $images['thumb'] }}">
                         <a target="_blank" data-ga="{{ $images['id'] }}_ImgUrl"
                             title="{{ $images['title'] }}"
                             href="freepng/{{ $images['slug'] }}"
@@ -191,7 +191,7 @@ $categories = General::getCategoryTree();
                             @if(General::checkCategory($categoryImages['category']['name']) == Category::TEMPLATES) Templates @endif
                             @if(General::checkCategory($categoryImages['category']['name']) == Category::ART_FONT) Curated Art Fonts Free Download @endif
                         </h4>
-                        <a target="_blank" href="freepng/Recently-Download.html" data-ga="More"
+                        <a target="_blank" href="{{ $categoryImages['category']['slug'] }}.html" data-ga="More"
                             class="mb-Btnmore tran element-click">More</a>
                     </div>
                 </li>
@@ -219,7 +219,7 @@ $categories = General::getCategoryTree();
                         data-ga="60152_ImgUrl" class="ppt-click">
                     <img class="lazy" src="../js2.pngtree.com/v2/images/lz.gif"
                         data-original="{{ $image['thumb'] }}"
-                        alt="{{ $image['title'] }}">
+                        alt="{{ $image['title'] }}" src="{{ $image['thumb'] }}">
                     </a>
                     <p class="text-overflow">{{ $image['title'] }}</p>
                     <div class="clearfix infor-btnbox">
@@ -236,7 +236,7 @@ $categories = General::getCategoryTree();
                     <div class="mb-more">
                         <h3>{{ $categoryImages['totals'] }}</h3>
                         <h4>Powerpoint Templates</h4>
-                        <a target="_blank" href="free-powerpoint-templates/more_yestday.html" data-ga="More"
+                        <a target="_blank" href="free-powerpoint-template.html" data-ga="More"
                             rel="nofollow" class="mb-Btnmore tran ppt-click">More</a>
                     </div>
                 </li>
@@ -264,7 +264,8 @@ $categories = General::getCategoryTree();
                     <div class="bacPng-box">
                         <img data-original="{{ $image['thumb'] }}"
                             alt="{{ $image['title'] }}"
-                            class="lazy">
+                            class="lazy"
+                             src="{{ $image['thumb'] }}">
                         <a target="_blank" href="freepng/{{ $image['slug'] }}"
                             class="tran ppt-click" data-ga="ODg5MTQz_ImgUrl"></a>
                         <p class="text-overflow">{{ $image['title'] }}</p>
@@ -276,7 +277,7 @@ $categories = General::getCategoryTree();
                     <div class="mb-more">
                         <h3>{{ $categoryImages['totals'] }}</h3>
                         <h4>Background Images</h4>
-                        <a target="_blank" href="freebackground/Recently-Download.html" rel="nofollow"
+                        <a target="_blank" href="free-backgrounds.html" rel="nofollow"
                             data-ga="More" class="mb-Btnmore tran ppt">More</a>
                     </div>
                 </li>
@@ -301,7 +302,7 @@ $categories = General::getCategoryTree();
                     </div>
                     <div class="bacPng-box">
                         <img width="100%" data-original="{{ $image['thumb'] }}"
-                            alt="{{ $image['title'] }}" class="lazy">
+                            alt="{{ $image['title'] }}" class="lazy" src="{{ $image['thumb'] }}">
                         <a rel="nofollow" target="_blank" href="freepng/{{ $image['slug'] }}"
                             data-ga="{{ $image['id'] }}_ImgUrl" class="tran icon-click"></a>
                         <p class="text-overflow tran">{{ $image['title'] }}k</p>

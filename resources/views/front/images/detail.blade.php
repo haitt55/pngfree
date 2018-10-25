@@ -77,32 +77,32 @@ $categories = General::getCategoryTree();
                         <a class="complain" style="display: none">
                             <i></i>Copyright complaint</a>
                     </div>
-                    <div class="detail-inner-footer">
-                        Download the free vector graphics to design your artworks which is related to <a
-                                style="color:#b9b9b9;" target="_blank" href="/free-png-vectors/fashion">fashion</a>, <a
-                                style="color:#b9b9b9;" target="_blank"
-                                href="/free-png-vectors/simplicity">simplicity</a>, <a style="color:#b9b9b9;"
-                                                                                       target="_blank"
-                                                                                       href="/free-png-vectors/halloween">halloween</a>.
-                        The simple cartoon halloween design pattern vector file is easy to modify in Adobe Illustrator.
-                    </div>
+                    {{--<div class="detail-inner-footer">--}}
+                        {{--Download the free vector graphics to design your artworks which is related to <a--}}
+                                {{--style="color:#b9b9b9;" target="_blank" href="/free-png-vectors/fashion">fashion</a>, <a--}}
+                                {{--style="color:#b9b9b9;" target="_blank"--}}
+                                {{--href="/free-png-vectors/simplicity">simplicity</a>, <a style="color:#b9b9b9;"--}}
+                                                                                       {{--target="_blank"--}}
+                                                                                       {{--href="/free-png-vectors/halloween">halloween</a>.--}}
+                        {{--The simple cartoon halloween design pattern vector file is easy to modify in Adobe Illustrator.--}}
+                    {{--</div>--}}
                 </div>
                 <div class="dl-keyWords  clearfix ele_keyword">
-                    <a target="_blank" href="/so/fashion">fashion</a>
-                    <a target="_blank" href="/so/simplicity">simplicity</a>
-                    <a target="_blank" href="/so/halloween">halloween</a>
-                    <a target="_blank" href="/so/phantom">phantom</a>
-                    <a target="_blank" href="/so/graphic">graphic</a>
-                    <a target="_blank" href="/so/design">design</a>
-                    <a target="_blank" href="/so/material">material</a>
-                    <a target="_blank" href="/so/color">color</a>
-                    <a target="_blank" href="/so/hand-painted">hand painted</a>
-                    <a target="_blank" href="/so/cartoon">cartoon</a>
-                    <a target="_blank" href="/so/cute">cute</a>
-                    <a target="_blank" href="/so/elemental">elemental</a>
-                    <a target="_blank" href="/so/style">style</a>
-                    <a target="_blank" href="/so/decorative">decorative</a>
-                    <a target="_blank" href="/so/monster">monster</a>
+                    {{--<a target="_blank" href="/so/fashion">fashion</a>--}}
+                    {{--<a target="_blank" href="/so/simplicity">simplicity</a>--}}
+                    {{--<a target="_blank" href="/so/halloween">halloween</a>--}}
+                    {{--<a target="_blank" href="/so/phantom">phantom</a>--}}
+                    {{--<a target="_blank" href="/so/graphic">graphic</a>--}}
+                    {{--<a target="_blank" href="/so/design">design</a>--}}
+                    {{--<a target="_blank" href="/so/material">material</a>--}}
+                    {{--<a target="_blank" href="/so/color">color</a>--}}
+                    {{--<a target="_blank" href="/so/hand-painted">hand painted</a>--}}
+                    {{--<a target="_blank" href="/so/cartoon">cartoon</a>--}}
+                    {{--<a target="_blank" href="/so/cute">cute</a>--}}
+                    {{--<a target="_blank" href="/so/elemental">elemental</a>--}}
+                    {{--<a target="_blank" href="/so/style">style</a>--}}
+                    {{--<a target="_blank" href="/so/decorative">decorative</a>--}}
+                    {{--<a target="_blank" href="/so/monster">monster</a>--}}
                 </div>
                 <p class="dbl-pictitle">Statement: This image is uploaded by designers.If you find other people shared
                     this work without your permission,please
@@ -212,7 +212,7 @@ $categories = General::getCategoryTree();
     </div>
     <div class="details-lists w1520 loaded">
         <div class="main-con ">
-            <h3 class="main-headline">View similar design elements <a target="_blank" href="/free-png-vectors/halloween"
+            <h3 class="main-headline">View similar design elements <a target="_blank" href="{{route('category.index', array('categorySlug' => $category->slug)) }}"
                                                                       class="btn-more fl-r">MORE</a></h3>
 
             <div class="main-body recommend-detail-element">

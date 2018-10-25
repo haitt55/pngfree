@@ -18,9 +18,11 @@ class ImageController extends Controller
     public function detail($categoryPrefix, $imageSlug)
     {
         $image      = Image::findBySlug($imageSlug);
+        $category = Category::find($image->category_id);
         $moreImages = Image::getAllImagesByCategory($image->category_id);
         return view('front.images.detail')->with(array(
             'image'      => $image,
+            'category'      => $category,
             'moreImages' => $moreImages,
         ));
     }

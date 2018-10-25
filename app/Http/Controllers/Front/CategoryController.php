@@ -6,11 +6,11 @@ use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends AbstractFrontController
 {
     public function __construct()
     {
-        //
+        parent::__construct();
     }
 
     public function index($categorySlug, Request $request)

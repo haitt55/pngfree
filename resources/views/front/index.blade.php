@@ -59,67 +59,67 @@ $categories = General::getCategoryTree();
 @section('content')
 <div class="w1520 index-con">
     <!-- Popular album recommended -->
-    <div class="index-recommended" style="padding-top:50px!important">
-        <h3 class="btn-headline">
-            <a href="album.html" target="_blank" class="topic-click" data-type="Popular_Albums">Popular
-            Albums</a>
-        </h3>
-        <ul class="clearfix recommen-box">
-            <li>
-                <!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->
-                <img src="../png.pngtree.com/topic/back/2018/03/29/61e7348b8b8c6bdba8492d5ebf4fb1f4.jpg"
-                    alt="" class="tran lazy">
-                <!--                        <span></span>-->
-                <a class="topic-click" data-type="Summer" href="album/summer_21.html"
-                    target="_blank">Summer</a>
-            </li>
-            <li>
-                <!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->
-                <img src="../png.pngtree.com/topic/back/2018/07/18/9f8db3fb180dc0f3094eef5fe447d943.png"
-                    alt="" class="tran lazy">
-                <!--                        <span></span>-->
-                <a class="topic-click" data-type="Liquid Gradient" href="album/liquid-gradient_50.html"
-                    target="_blank">Liquid Gradient</a>
-            </li>
-            <li>
-                <!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->
-                <img src="../png.pngtree.com/topic/back/2018/08/03/4b96bb09b3fa69a3f902118bda032aa4.png"
-                    alt="" class="tran lazy">
-                <!--                        <span></span>-->
-                <a class="topic-click" data-type="Eid al-Adha" href="album/eid-al-adha_52.html"
-                    target="_blank">Eid al-Adha</a>
-            </li>
-            <li>
-                <!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->
-                <img src="../png.pngtree.com/topic/back/2018/08/02/0596e7144a33672600f6a508d00dc73f.png"
-                    alt="" class="tran lazy">
-                <!--                        <span></span>-->
-                <a class="topic-click" data-type="India Independence Day"
-                    href="album/india-independence-day_53.html" target="_blank">India Independence Day</a>
-            </li>
-            <li>
-                <!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->
-                <img src="../png.pngtree.com/topic/back/2018/07/05/911386612538981291afad3cab38848a.png"
-                    alt="" class="tran lazy">
-                <!--                        <span></span>-->
-                <a class="topic-click" data-type="Food" href="album/food_49.html" target="_blank">Food</a>
-            </li>
-            <li>
-                <!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->
-                <img src="../png.pngtree.com/topic/back/2018/04/03/d9a57d84fd5276e87db61b159b9a802f.jpg"
-                    alt="" class="tran lazy">
-                <!--                        <span></span>-->
-                <a class="topic-click" data-type="Flowers" href="album/flowers_6.html" target="_blank">Flowers</a>
-            </li>
-            <li>
-                <!--                    <img data-original="https://png.pngtree.com/topic/cover/2017/12/21/369fbb19b5c3a44fce25c05433c9c826.jpg" alt="" class="tran lazy">-->
-                <img src="../png.pngtree.com/topic/cover/more.jpg" alt="" class="tran lazy">
-                <span></span>
-                <a target="_blank" class="btn-more topic-click" data-type="More" rel="nofollow"
-                    href="album.html"> More>></a>
-            </li>
-        </ul>
-    </div>
+    {{--<div class="index-recommended" style="padding-top:50px!important">--}}
+        {{--<h3 class="btn-headline">--}}
+            {{--<a href="album.html" target="_blank" class="topic-click" data-type="Popular_Albums">Popular--}}
+            {{--Albums</a>--}}
+        {{--</h3>--}}
+        {{--<ul class="clearfix recommen-box">--}}
+            {{--<li>--}}
+                {{--<!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->--}}
+                {{--<img src="../png.pngtree.com/topic/back/2018/03/29/61e7348b8b8c6bdba8492d5ebf4fb1f4.jpg"--}}
+                    {{--alt="" class="tran lazy">--}}
+                {{--<!--                        <span></span>-->--}}
+                {{--<a class="topic-click" data-type="Summer" href="album/summer_21.html"--}}
+                    {{--target="_blank">Summer</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->--}}
+                {{--<img src="../png.pngtree.com/topic/back/2018/07/18/9f8db3fb180dc0f3094eef5fe447d943.png"--}}
+                    {{--alt="" class="tran lazy">--}}
+                {{--<!--                        <span></span>-->--}}
+                {{--<a class="topic-click" data-type="Liquid Gradient" href="album/liquid-gradient_50.html"--}}
+                    {{--target="_blank">Liquid Gradient</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->--}}
+                {{--<img src="../png.pngtree.com/topic/back/2018/08/03/4b96bb09b3fa69a3f902118bda032aa4.png"--}}
+                    {{--alt="" class="tran lazy">--}}
+                {{--<!--                        <span></span>-->--}}
+                {{--<a class="topic-click" data-type="Eid al-Adha" href="album/eid-al-adha_52.html"--}}
+                    {{--target="_blank">Eid al-Adha</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->--}}
+                {{--<img src="../png.pngtree.com/topic/back/2018/08/02/0596e7144a33672600f6a508d00dc73f.png"--}}
+                    {{--alt="" class="tran lazy">--}}
+                {{--<!--                        <span></span>-->--}}
+                {{--<a class="topic-click" data-type="India Independence Day"--}}
+                    {{--href="album/india-independence-day_53.html" target="_blank">India Independence Day</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->--}}
+                {{--<img src="../png.pngtree.com/topic/back/2018/07/05/911386612538981291afad3cab38848a.png"--}}
+                    {{--alt="" class="tran lazy">--}}
+                {{--<!--                        <span></span>-->--}}
+                {{--<a class="topic-click" data-type="Food" href="album/food_49.html" target="_blank">Food</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<!--                        <img data-original="--><!--"  alt="" class="tran lazy">-->--}}
+                {{--<img src="../png.pngtree.com/topic/back/2018/04/03/d9a57d84fd5276e87db61b159b9a802f.jpg"--}}
+                    {{--alt="" class="tran lazy">--}}
+                {{--<!--                        <span></span>-->--}}
+                {{--<a class="topic-click" data-type="Flowers" href="album/flowers_6.html" target="_blank">Flowers</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<!--                    <img data-original="https://png.pngtree.com/topic/cover/2017/12/21/369fbb19b5c3a44fce25c05433c9c826.jpg" alt="" class="tran lazy">-->--}}
+                {{--<img src="../png.pngtree.com/topic/cover/more.jpg" alt="" class="tran lazy">--}}
+                {{--<span></span>--}}
+                {{--<a target="_blank" class="btn-more topic-click" data-type="More" rel="nofollow"--}}
+                    {{--href="album.html"> More>></a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    {{--</div>--}}
     @foreach ($categoryWithImages as $categoryImages)
     @if (General::checkCategory($categoryImages['category']['name']) == Category::GRAPHIC_DESIGN
     || General::checkCategory($categoryImages['category']['name']) == Category::TEMPLATES
@@ -183,6 +183,7 @@ $categories = General::getCategoryTree();
                     </div>
                 </li>
                 @endforeach
+                @if ($categoryImages['totals'])
                 <li>
                     <div class="mb-more">
                         <h3>{{ $categoryImages['totals'] }}</h3>
@@ -195,6 +196,7 @@ $categories = General::getCategoryTree();
                             class="mb-Btnmore tran element-click">More</a>
                     </div>
                 </li>
+                @endif
             </ul>
         </div>
     </div>
@@ -232,6 +234,7 @@ $categories = General::getCategoryTree();
                 </li>
                 @endif
                 @endfor
+                @if ($categoryImages['totals'])
                 <li class="mr0">
                     <div class="mb-more">
                         <h3>{{ $categoryImages['totals'] }}</h3>
@@ -240,6 +243,7 @@ $categories = General::getCategoryTree();
                             rel="nofollow" class="mb-Btnmore tran ppt-click">More</a>
                     </div>
                 </li>
+                @endif
             </ul>
         </div>
     </div>
@@ -273,6 +277,7 @@ $categories = General::getCategoryTree();
                 </li>
                 @endif
                 @endfor
+                @if ($categoryImages['totals'])
                 <li class="vertical mr0">
                     <div class="mb-more">
                         <h3>{{ $categoryImages['totals'] }}</h3>
@@ -281,6 +286,7 @@ $categories = General::getCategoryTree();
                             data-ga="More" class="mb-Btnmore tran ppt">More</a>
                     </div>
                 </li>
+                @endif
             </ul>
         </div>
     </div>
@@ -309,6 +315,7 @@ $categories = General::getCategoryTree();
                     </div>
                 </li>
                 @endforeach
+                @if ($categoryImages['totals'])
                 <li>
                     <div class="mb-more">
                         <h3>{{ $categoryImages['totals'] }}</h3>
@@ -317,6 +324,7 @@ $categories = General::getCategoryTree();
                             class="mb-Btnmore tran icon-click">More</a>
                     </div>
                 </li>
+                @endif
             </ul>
         </div>
     </div>

@@ -67,6 +67,9 @@ class ImageController extends Controller
                 if ($headers['Content-Type'][0] == 'application/x-zip-compressed') {
                     $extension = 'zip';
                 }
+                if ($headers['Content-Type'][0] == 'application/x-zip-compressed' || $headers['Content-Type'][0] == 'application/x-rar') {
+                    $extension = 'rar';
+                }
                 header("Pragma: public");
                 header("Expires: 0");
                 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");

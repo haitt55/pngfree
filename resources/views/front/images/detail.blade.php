@@ -194,18 +194,18 @@ $categories = General::getCategoryTree();
 
                 <div class="add-recommend dbr-items ele_recommend">
                     <h3>Related recommendation:</h3>
-                    <a target="_blank" href="/free-png-vectors/cartoon-couple" title="cartoon couple">cartoon couple</a>
-                    <a target="_blank" href="/free-png-vectors/pattern" title="pattern">pattern</a>
-                    <a target="_blank" href="/free-png-vectors/cartoon" title="cartoon">cartoon</a>
-                    <a target="_blank" href="/free-png-vectors/halloween" title="halloween">halloween</a>
-                    <a target="_blank" href="/free-png-vectors/flower-pattern" title="flower pattern">flower pattern</a>
-                    <a target="_blank" href="/free-png-vectors/cartoon-eyes" title="cartoon eyes">cartoon eyes</a>
-                    <a target="_blank" href="/free-png-vectors/geometric-pattern" title="geometric pattern">geometric
-                        pattern</a>
-                    <a target="_blank" href="/free-png-vectors/boy-cartoon" title="boy cartoon">boy cartoon</a>
-                    <a target="_blank" href="/free-png-vectors/simple-border" title="simple border">simple border</a>
-                    <a target="_blank" href="/free-png-vectors/cartoon-character" title="cartoon character">cartoon
-                        character</a>
+                    {{--<a target="_blank" href="/free-png-vectors/cartoon-couple" title="cartoon couple">cartoon couple</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/pattern" title="pattern">pattern</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/cartoon" title="cartoon">cartoon</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/halloween" title="halloween">halloween</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/flower-pattern" title="flower pattern">flower pattern</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/cartoon-eyes" title="cartoon eyes">cartoon eyes</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/geometric-pattern" title="geometric pattern">geometric--}}
+                        {{--pattern</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/boy-cartoon" title="boy cartoon">boy cartoon</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/simple-border" title="simple border">simple border</a>--}}
+                    {{--<a target="_blank" href="/free-png-vectors/cartoon-character" title="cartoon character">cartoon--}}
+                        {{--character</a>--}}
                 </div>
             </div>
         </div>

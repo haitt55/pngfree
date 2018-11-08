@@ -27,26 +27,26 @@ $categories = General::getCategoryTree();
             </div>
         </div>
         <!-- tab -->
-        <div class="tab-box clearfix">
-            <a class="tab king fl-l clearfix tran" target="_blank" href="#" rel="nofollow"
-                data-index-click-type="designer">
-                <div class="fl-l link-img"></div>
-                <h3>The Expert of Design<span class="to"></span></h3>
-                <p>The most professional designer team</p>
-            </a>
-            <a class="tab download fl-l clearfix tran" target="_blank" href="#" rel="nofollow"
-                data-index-click-type="download">
-                <div class="fl-l link-img"></div>
-                <h3>The Ranking of Download<span class="to"></span></h3>
-                <p>Discover the design trend</p>
-            </a>
-            <a class="tab update fl-l clearfix tran" target="_blank"
-                href="free-graphic-design.html?sort=new" rel="nofollow" data-index-click-type="update">
-                <div class="fl-l link-img"></div>
-                <h3>{{ $updatedToday }} Updated Today<span class="to"></span></h3>
-                <p>Daily Updated</p>
-            </a>
-        </div>
+        {{--<div class="tab-box clearfix">--}}
+            {{--<a class="tab king fl-l clearfix tran" target="_blank" href="#" rel="nofollow"--}}
+                {{--data-index-click-type="designer">--}}
+                {{--<div class="fl-l link-img"></div>--}}
+                {{--<h3>The Expert of Design<span class="to"></span></h3>--}}
+                {{--<p>The most professional designer team</p>--}}
+            {{--</a>--}}
+            {{--<a class="tab download fl-l clearfix tran" target="_blank" href="#" rel="nofollow"--}}
+                {{--data-index-click-type="download">--}}
+                {{--<div class="fl-l link-img"></div>--}}
+                {{--<h3>The Ranking of Download<span class="to"></span></h3>--}}
+                {{--<p>Discover the design trend</p>--}}
+            {{--</a>--}}
+            {{--<a class="tab update fl-l clearfix tran" target="_blank"--}}
+                {{--href="free-graphic-design.html?sort=new" rel="nofollow" data-index-click-type="update">--}}
+                {{--<div class="fl-l link-img"></div>--}}
+                {{--<h3>{{ $updatedToday }} Updated Today<span class="to"></span></h3>--}}
+                {{--<p>Daily Updated</p>--}}
+            {{--</a>--}}
+        {{--</div>--}}
     </div>
     <!--<div class="new-go_experience">
         <div class="new-inner">

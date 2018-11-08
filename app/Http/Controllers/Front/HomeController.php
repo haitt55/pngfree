@@ -18,9 +18,11 @@ class HomeController extends AbstractFrontController
     {
         $categoryWithImages     = Category::getCategoriesAndImageForIndex();
         $tagsWithNumberOfImages = Tag::getTagsWithNumberOfImages();
+        $updatedToday = Image::getUpdatedToday();
         return view('front.index')->with(array(
             'categoryWithImages'     => $categoryWithImages,
             'tagsWithNumberOfImages' => $tagsWithNumberOfImages,
+            'updatedToday' => $updatedToday
         ));
     }
 

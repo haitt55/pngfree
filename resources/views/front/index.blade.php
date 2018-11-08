@@ -43,7 +43,7 @@ $categories = General::getCategoryTree();
             <a class="tab update fl-l clearfix tran" target="_blank"
                 href="free-graphic-design.html?sort=new" rel="nofollow" data-index-click-type="update">
                 <div class="fl-l link-img"></div>
-                <h3>901 Updated Today<span class="to"></span></h3>
+                <h3>{{ $updatedToday }} Updated Today<span class="to"></span></h3>
                 <p>Daily Updated</p>
             </a>
         </div>
@@ -338,7 +338,7 @@ $categories = General::getCategoryTree();
 
 
 @section('js')
-<script src="v2/js/v2/base-newf3db.js?v=2018081119"></script>
+<script src="//js2.pngtree.com/v2/js/jquery-1.7.1.min.js?v=201809071207"></script>
 <script src="v2/js/v2/indexf3db.js?v=2018081119"></script><!--结束js脚本模块-->
 <script>
     addLoadEvent(function () {
@@ -348,6 +348,9 @@ $categories = General::getCategoryTree();
         $('.load-page-time').html(g_bdTime);
     });
 </script>
+<script src="//js2.pngtree.com/v2/js/v2/base-new.js?v=201809071207"></script>
+<script src="//js2.pngtree.com/v2/js/jquery.flex-images.min.js?v=201809071207"></script>
+<script src="//js2.pngtree.com/v2/js/v2/detail/details.js?v=201809071207"></script>
 <script type="text/javascript" src="{!!asset('js/guest/login.js')!!}"></script>
 <script type="text/javascript" src="{!!asset('js/auth.js')!!}"></script>
 @endsection

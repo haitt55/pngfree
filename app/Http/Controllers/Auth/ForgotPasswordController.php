@@ -27,6 +27,11 @@ class ForgotPasswordController extends Controller
      */
     public function __construct()
     {
+        $user = null;
+        if (auth()->check() || auth()->viaRemember()) {
+            $user = auth()->user();
+        }
+        view()->share('userLoggedIn', $user);
         $this->middleware('guest');
     }
 }

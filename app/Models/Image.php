@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Category;
+use Carbon\Carbon;
 
 class Image extends BaseModel
 {
@@ -88,8 +89,16 @@ class Image extends BaseModel
             $query = $query->whereIn('category_id', array_merge(Category::getAllCategoryChildId($params['category']), [$params['category']]));
         }
         if (isset($params['keyword']) && $params['keyword']) {
-            $query = $query->findRegex($params['keyword']);
+            $query = $query->where(function($q) use ($params) {
+                $q->findRegex($params['keyword'])
+                ->orWhere('title_vn', 'like', '%' . $params['keyword'] . '%');
+            });
         }
         return $query->paginate()->appends($params);
+    }
+
+    public static function getUpdatedToday()
+    {
+        return static::whereDate('created_at', Carbon::today())->get()->count();
     }
 }

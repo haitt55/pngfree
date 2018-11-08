@@ -17,13 +17,13 @@
         </div>
     </div>
     <ul class="sideBoxes">
-        <li class="side-entrance">
+        {{--<li class="side-entrance">--}}
 <!--            --><!--                <a target="_blank"  href="/Coupon" target="_blank" class=""><i class="coupon"></i></a>-->
 <!--                <a target="_blank"  href="/design_challenge/gradients/works#content" class="designer-share"><i class="designer-share"></i></a>-->
-<!--            -->                <a href="javascript:;   " target="_blank" class="side-share"><i class="share"></i></a>
+{{--<!--            -->                <a href="javascript:;   " target="_blank" class="side-share"><i class="share"></i></a>--}}
 <!--            --><!---->
 <!--            <a href="javascript:;" target="_blank" class="side-share"><i class="share"></i></a>-->
-        </li>
+        {{--</li>--}}
         <li class="side-facebook">
             <a target="_blank" rel="nofollow" href="https://www.facebook.com/Pngtree-366522263734176/">
                 <i></i>

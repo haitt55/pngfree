@@ -11,6 +11,11 @@
 |
  */
 
+Route::get('password/email', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.email');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+
+Auth::routes();
+
 // Auth
 Route::group([
     'as' => 'auth.',

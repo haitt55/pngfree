@@ -39,6 +39,9 @@ class HomeController extends AbstractFrontController
     public function loginCheck()
     {
         if (Auth::guard('web')->user()) {
+            if (!Auth::guard('web')->user()->is_active) {
+                return response()->json(array('is_active' => 0));
+            }
             return response()->json(array('login' => 1));
         }
 

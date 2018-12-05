@@ -69,6 +69,7 @@
                     <!-- Main menu -->
                     <li class="@yield('current_index')" ><a href="{{route('admin.dashboard')}}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
                     <li class="@yield('current_listUser')"><a href="{{route('admin.listUser')}}"><i class="glyphicon glyphicon-list-alt"></i>List Users</a></li>
+					{{--<li class="@yield('current_listAdminImage')"><a href="{{route('admin.listAdminImage')}}"><i class="glyphicon glyphicon-list-alt"></i>List Images of Admin</a></li>--}}
                 </ul>
              </div>
 		  </div>

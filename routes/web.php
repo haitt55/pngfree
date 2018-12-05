@@ -33,7 +33,11 @@ Route::group([
 Route::get('admin/dashboard','AdminController@index')->name('admin.dashboard');
 Route::get('admin/list-users','AdminController@listUser')->name('admin.listUser');
 Route::post('admin/changeStatus','AdminController@changeStatus')->name('admin.changeStatus');
+Route::post('admin/changeActiveStatus','AdminController@changeActiveStatus')->name('admin.changeActiveStatus');
 Route::post('admin/deleteUser','AdminController@deleteUser')->name('admin.deleteUser');
+Route::get('admin/list-images','Admin\ImageController@listAdminImage')->name('admin.listAdminImage');
+Route::get('admin/images/create','Admin\ImageController@create')->name('admin.image.create');
+Route::post('admin/images/store','Admin\ImageController@store')->name('admin.image.store');
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin','Admin\LoginController@login');
 Route::post('admin/logout','Admin\LoginController@logout')->name('admin.logout');

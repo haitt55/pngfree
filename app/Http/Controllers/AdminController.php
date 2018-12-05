@@ -38,6 +38,11 @@ class AdminController extends Controller
         return User::changeStatus($request->user_id, $request->payment_id);
     }
 
+    public function changeActiveStatus(Request $request)
+    {
+        return User::changeActiveStatus($request->user_id);
+    }
+
     public function deleteUser(Request $request)
     {
         if (User::deleteUser($request->user_id)) {

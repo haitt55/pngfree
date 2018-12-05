@@ -23,6 +23,7 @@ class User extends Authenticatable
         'google_id',
         'facebook_id',
         'twitter_id',
+        'is_active'
     ];
 
     /**
@@ -127,6 +128,20 @@ class User extends Authenticatable
                 'payment_id' => $payment_id,
                 'payment_at' =>  DB::raw('NOW()'),
                 'payment_expire' => DB::raw("DATE_ADD(NOW(), INTERVAL ".self::getMonthStatus()[$payment_id]." MONTH)"),
+            ]);
+    }
+
+    public static function changeActiveStatus($userID)
+    {
+        $user = self::where('id', $userID)->first();
+        if ($user->is_active) {
+            $user->is_active = 0;
+        } else {
+            $user->is_active = 1;
+        }
+        return self::where('id', $userID)
+            ->update([
+                'is_active' => $user->is_active
             ]);
     }
 }

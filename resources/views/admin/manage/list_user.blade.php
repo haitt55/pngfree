@@ -71,6 +71,9 @@ use Illuminate\Support\Facades\Session;
 											 	@endforeach
 											</select>
 							        	</div>
+
+										<button class="btn @if($user->is_active) btn-warning @else btn-success @endif btn-change-active-status" user_id = "{{$user->id}}"
+												url = "{{ route('admin.changeActiveStatus') }}">@if($user->is_active) UnActive @else Active @endif</button>
 							        	
 										<button style="margin-left: 8px;" type="button" class="btn btn-danger btn_delete_user" user_id = "{{$user->id}}">Delete</button>
 							        </td>
@@ -133,5 +136,30 @@ use Illuminate\Support\Facades\Session;
   			$('#user_id_delete').val(user_id);
   			$('#delete_confirm').modal('show');
   		});
+
+		$('.btn-change-active-status').click(function(){
+			var user_id = $(this).attr('user_id');
+			var url = $(this).attr('url');
+			var thisBtn = $(this);
+			$.ajax({
+				url: url,
+				type: "POST",
+				data: {
+					"_token":"{{ csrf_token() }}",
+					"user_id": user_id,
+				},
+				success: function(){
+					if (thisBtn.hasClass('btn-warning')) {
+						thisBtn.removeClass('btn-warning');
+						thisBtn.addClass('btn-success');
+						thisBtn.text('Active');
+					} else {
+						thisBtn.removeClass('btn-success');
+						thisBtn.addClass('btn-warning');
+						thisBtn.text('UnActive');
+					}
+				}
+			});
+		});
   	</script>
 @endsection

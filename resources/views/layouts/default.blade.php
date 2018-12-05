@@ -180,6 +180,15 @@
                     </div>
                 </div>
             </div>
+            <div class='tkw-window' id="downastrict-notactive" style="display: none;">
+                <div class="tkw-main">
+                    <div class="tkw-dlimitCont">
+                        <span class="cls-btn"></span>
+                        <i class="dlimit-ico"></i>
+                        <h3>You are not active now. Please wait for admin approved</h3>
+                    </div>
+                </div>
+            </div>
             <div class="tkw-window" id="downastrict-2" style="display: none;">
                 <div class="tkw-mask"></div>
                 <div class="tkw-main" 0>

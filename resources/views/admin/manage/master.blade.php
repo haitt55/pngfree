@@ -1,4 +1,4 @@
-<?use Auth;?>
+<?use Illuminate\Support\Facades\Auth;?>
 <!DOCTYPE html>
 <html>
   <head>

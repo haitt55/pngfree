@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Google_Service_Drive_DriveFile;
+use Illuminate\Support\Facades\Session;
 
 class ImageController extends Controller
 {
@@ -46,25 +51,99 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        putenv('GOOGLE_APPLICATION_CREDENTIALS='.base_path('projectyoutubeplaylist-1322-82b50f954e54.json'));
-        $client = new \Google_Client([
-            'auth' => 'google_auth'
+        $validator = Validator::make($request->all(), [
+            'title'             => 'required|max:255',
+            'category_id'             => 'required',
+            'description' => 'required',
+            'thumb_file'             => 'required',
         ]);
-        $client->addScope(\Google_Service_Drive::DRIVE);
-        $client->useApplicationDefaultCredentials();
-        $fileMetadata = new \Google_Service_Drive_DriveFile(array(
-            'name' => 'photo.jpg'));
-        $content = file_get_contents($request->file('jpg_file'));
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors())->withInput($request->all());
+        }
+        $image = new Image();
+        $image->title = $request->get('title');
+        $image->slug = $this->slugify($request->get('title'));
+        $image->description = $request->get('description');
+        $image->category_id = $request->get('category_id');
+        $image->meta_description = $request->get('meta_description');
+        $image->meta_keywords = $request->get('meta_keywords');
+        $image->meta_title = $request->get('meta_title');
+        if ($request->get('tag_id')) {
+            $image->tag_id = implode(',', $request->get('tag_id'));
+        } else {
+            $image->tag_id = 1;
+        }
+        $client = new \Google_Client();
+        $client->setClientId(env('GOOGLE_DRIVE_CLIENT_ID'));
+        $client->setClientSecret(env('GOOGLE_DRIVE_CLIENT_SECRET'));
+        $client->refreshToken(env('GOOGLE_DRIVE_REFRESH_TOKEN'));
         $service = new \Google_Service_Drive($client);
-        $file = $service->files->create($fileMetadata, array(
-            'data' => $content,
-            //'mimeType' => 'image/jpeg',
-            'uploadType' => 'multipart',
-            'fields' => 'id'));
-        dd($file);
 
+        $imageName = $this->generateRandomString(10);
+        if ($request->file('thumb_file')) {
+            $thumbFile = new Google_Service_Drive_DriveFile(array('name' => $imageName.'.'.$request->file('thumb_file')->getClientOriginalExtension()));
+            $resultThumb = $service->files->create(
+                $thumbFile,
+                array(
+                    'data' => file_get_contents($request->file('thumb_file')),
+                    'mimeType' => 'application/octet-stream',
+                    'uploadType' => 'media'
+                )
+            );
+            $image->thumb = $resultThumb->id;
+        }
+        if ($request->file('jpg_file')) {
+            $jpgFile = new Google_Service_Drive_DriveFile(array('name' => $imageName.'.'.$request->file('jpg_file')->getClientOriginalExtension()));
+            $resultThumb = $service->files->create(
+                $jpgFile,
+                array(
+                    'data' => file_get_contents($request->file('jpg_file')),
+                    'mimeType' => 'application/octet-stream',
+                    'uploadType' => 'media'
+                )
+            );
+            $image->jpg_link = $resultThumb->id;
+        }
+        $image->save();
+        Session::flash('success', 'create image success!');
+        return redirect()->route('admin.listAdminImage');
+    }
 
-        return true;
+    function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString.time();
+    }
+
+    public function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // remove duplicate -
+        $text = preg_replace('~-+~', '-', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        if (empty($text)) {
+            return 'n-a';
+        }
+
+        return $text;
     }
 
     /**

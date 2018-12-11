@@ -25,4 +25,10 @@ class Tag extends BaseModel
 
         return $tags;
     }
+
+    public static function getAll()
+    {
+        $tags = self::select('*')->get()->pluck('name', 'id')->all();
+        return $tags;
+    }
 }

@@ -13,6 +13,9 @@ class CreateImagesTagsTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('images_tags')) {
+            return true;
+        }
         Schema::create('images_tags', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('image_id');

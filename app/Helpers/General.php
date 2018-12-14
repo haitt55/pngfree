@@ -5,6 +5,7 @@ namespace App\Helpers;
 use App\Models\Category;
 use App\Models\Image;
 use DB;
+use Illuminate\Support\Facades\Config;
 
 class General
 {
@@ -167,5 +168,26 @@ class General
         $count = Image::all()->count();
 
         return $count;
+    }
+
+    public static function getShortLink($driveId)
+    {
+        if (!$driveId) {
+            return null;
+        }
+        $googleView = Config::get('drive-img.google_view');
+        $shortConfig = Config::get('drive-img.short_link_api');
+        // replace id in google drive
+        $driveLink = urlencode(preg_replace('/\{id\}/', $driveId, $googleView));
+
+        // replace token, url in link short
+        $shortLink = preg_replace('/\{token\}/', $shortConfig['token'], $shortConfig['url']);
+        $shortLink = preg_replace('/\{org_url\}/', $driveLink, $shortLink);
+        try {
+            return @file_get_contents($shortLink);
+        } catch (\Exception $ex) {
+            \Log::error($ex);
+            return null;
+        }
     }
 }

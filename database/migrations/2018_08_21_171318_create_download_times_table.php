@@ -13,6 +13,9 @@ class CreateDownloadTimesTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('download_times')) {
+            return true;
+        }
         Schema::create('download_times', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');

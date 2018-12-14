@@ -13,8 +13,12 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('tags')) {
+            return true;
+        }
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->string('name', 100);
             $table->timestamps();
         });

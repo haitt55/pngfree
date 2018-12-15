@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ChangeTypeOfPaymentIdColumnInUsersTable extends Migration
+class AlterUsersV1 extends Migration
 {
+    private $tbl = 'users';
+
     /**
      * Run the migrations.
      *
@@ -13,8 +16,11 @@ class ChangeTypeOfPaymentIdColumnInUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('payment_id')->change();
+        if (!Schema::hasTable($this->tbl) || Schema::hasColumn($this->tbl, 'is_active')) {
+            return true;
+        }
+        Schema::table($this->tbl, function (Blueprint $table) {
+            $table->boolean('is_active')->nullable()->default(0);
         });
     }
 
@@ -25,8 +31,5 @@ class ChangeTypeOfPaymentIdColumnInUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->timestamp('payment_id')->nullable()->change();
-        });
     }
 }

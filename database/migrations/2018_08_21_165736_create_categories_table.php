@@ -13,11 +13,18 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('categories')) {
+            return true;
+        }
+        
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->nullable();
+            $table->string('slug');
             $table->string('name', 100);
             $table->integer('level');
+            $table->tinyInteger('is_head_red');
+            $table->tinyInteger('is_new');
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
             $table->string('meta_title')->nullable();

@@ -30,62 +30,65 @@ class ImageController extends Controller
     public function download(Request $request)
     {
         if (!$request->get('id') || !$request->get('type')) {
-            abort(404);
+            return [
+                'status' => 0,
+                'message' => 'Item not found'
+            ];
         }
-
-        if (!auth()->user()) {
-            abort(404);
+        if (!auth()->user() || !auth()->user()->is_active) {
+            return [
+                'status' => 0,
+                'message' => 'Item not found'
+            ];
         }
 
         // check download number
         $downloadTimes = DB::table('download_times')->where('user_id', auth()->user()->id)->first();
-        $downloadNumber = 0;
-        $canDownload = 0;
-        try {
-            if ($downloadTimes && $downloadTimes->download_number) {
-                $downloadNumber = $downloadTimes->download_number;
-                $canDownload = 1;
-                // download image
-                list($fileId, $fileName) = $this->getFileName($request->get('id'), $request->get('type'));
-                $extension = $this->getFileExtension($request->get('type'));
-                // get file to download folder
-
-                // update download number
-                $downloadNumber = $downloadNumber - 1;
-                DB::table('download_times')->where('user_id', auth()->user()->id)->update(['download_number' => $downloadNumber]);
-
-                // download file
-                putenv('GOOGLE_APPLICATION_CREDENTIALS='.base_path('projectyoutubeplaylist-1322-82b50f954e54.json'));
-                $client = new \Google_Client([
-                    'auth' => 'google_auth'
-                ]);
-                $client->addScope(\Google_Service_Drive::DRIVE);
-                $client->useApplicationDefaultCredentials();
-                $service = new \Google_Service_Drive($client);
-                $response = $service->files->get($fileId, array('alt' => 'media'));
-                $headers = $response->getHeaders();
-                if ($headers['Content-Type'][0] == 'application/x-zip-compressed') {
-                    $extension = 'zip';
-                }
-                if ($headers['Content-Type'][0] == 'application/x-zip-compressed' || $headers['Content-Type'][0] == 'application/x-rar') {
-                    $extension = 'rar';
-                }
-                header("Pragma: public");
-                header("Expires: 0");
-                header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-                header("Cache-Control: public");
-                header("Content-Description: File Transfer");
-                header("Content-Type: application/zip");
-                header("Cache-Control: no-store, no-cache");
-                header("Content-Transfer-Encoding: binary");
-                header('Content-Disposition: attachment; filename="'.$fileName.'.'.$extension.'"');
-                echo $response->getBody()->getContents();
-            } else {
-                return view('images.download');
-            }
-        } catch (\Exception $e) {
-            abort(404);
+        if (!$downloadTimes ||
+            !$downloadTimes->download_number ||
+            $downloadTimes->download_number < 0
+        ) {
+            return [
+                'status' => 0,
+                'redirect' => route('image.download.limit')
+            ];
         }
+
+        // download image
+        $driveId = $this->getFileName($request->get('id'), $request->get('type'));
+        if (!$driveId) {
+            return [
+                'status' => 0,
+                'message' => 'Link not found'
+            ];
+        }
+        $link = General::getShortLink($driveId);
+        if (!$link) {
+            return [
+                'status' => 0,
+                'message' => 'Link not found'
+            ];
+        }
+        try {
+            DB::table('download_times')
+                ->where('user_id', auth()->user()->id)
+                ->update(['download_number' => $downloadTimes->download_number - 1]);
+        } catch (\Exception $e) {
+            \Log::error($e);
+            return [
+                'status' => 0,
+                'message' => 'System error'
+            ];
+        }
+        return [
+            'status' => 1,
+            'link' => $link
+        ];
+    }
+
+    public function limitNumberDownload()
+    {
+        return view('images.download');
     }
 
     public function getFileName($id, $type)
@@ -117,7 +120,10 @@ class ImageController extends Controller
                 break;
         }
         $image = Image::find($id);
-        return array($image->$linkField, $image->slug);
+        if (!$image) {
+            return null;
+        }
+        return $image->{$linkField};
     }
 
     public function getFileExtension($type)

@@ -340,5 +340,16 @@
         @include('layouts.partials.footer')
         @include('layouts.partials.side_navigation')
         @include('layouts.includes.foot_js')
+
+<div class='tkw-window' id="message-cus" style="display: none;">
+    <div class="tkw-main">
+        <div class="tkw-dlimitCont">
+            <span class="cls-btn"></span>
+            <i class="dlimit-ico"></i>
+            <h3 data-mc-body="title"></h3>
+            <p data-mc-body="body"></p>
+        </div>
+    </div>
+</div>
     </body>
 </html>

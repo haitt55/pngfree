@@ -13,6 +13,9 @@ class CreateAdminTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('admins')) {
+            return true;
+        }
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100)->nullable();

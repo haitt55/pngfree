@@ -13,12 +13,23 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('images')) {
+            return true;
+        }
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug');
             $table->string('title');
             $table->string('thumb');
-            $table->string('image');
+            $table->string('png_link')->nullable();
+            $table->string('psd_link')->nullable();
+            $table->string('ai_link')->nullable();
+            $table->string('jpg_link')->nullable();
+            $table->string('eps_link')->nullable();
+            $table->string('ppt_link')->nullable();
+            $table->string('svg_link')->nullable();
+            $table->string('tag_id')->nullable();
+            $table->string('album')->nullable();
             $table->integer('category_id');
             $table->smallInteger('type')->nullable();
             $table->text('description')->nullable();
